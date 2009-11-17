@@ -9,3 +9,4 @@
 #import <TWOAuthKit/TWURLRequest+OAuth.h>
 #import <TWOAuthKit/OAConsumer.h>
 #import <TWOAuthKit/OAToken.h>
+#import <TWToolkit/TWTwitterOAuthViewController.h>
