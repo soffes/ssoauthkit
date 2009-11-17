@@ -27,9 +27,30 @@
 		B26A174510B35518009AF307 /* TWURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A174310B35518009AF307 /* TWURLRequest+OAuth.m */; };
 		B26A175110B35583009AF307 /* NSURL+OAuthString.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A174F10B35583009AF307 /* NSURL+OAuthString.h */; };
 		B26A175210B35583009AF307 /* NSURL+OAuthString.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A175010B35583009AF307 /* NSURL+OAuthString.m */; };
+		B26A177610B356DC009AF307 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A177510B356DC009AF307 /* CoreGraphics.framework */; };
+		B26A177810B356DC009AF307 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A177710B356DC009AF307 /* SystemConfiguration.framework */; };
+		B26A177A10B356DC009AF307 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A177910B356DC009AF307 /* UIKit.framework */; };
+		B26A17FA10B356E9009AF307 /* libTWToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A17F910B356E7009AF307 /* libTWToolkit.a */; };
 		B2BA993810B352D3001EEA88 /* TWOAuthKit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = B2BA993710B352D3001EEA88 /* TWOAuthKit_Prefix.pch */; };
 		B2BA994210B3530B001EEA88 /* TWOAuthKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B2BA994010B3530B001EEA88 /* TWOAuthKit.h */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B26A17F810B356E7009AF307 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libTWToolkit.a */;
+			remoteInfo = TWToolkit;
+		};
+		B26A17FB10B356F0009AF307 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* TWToolkit */;
+			remoteInfo = TWToolkit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -52,6 +73,10 @@
 		B26A174310B35518009AF307 /* TWURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWURLRequest+OAuth.m"; sourceTree = "<group>"; };
 		B26A174F10B35583009AF307 /* NSURL+OAuthString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+OAuthString.h"; sourceTree = "<group>"; };
 		B26A175010B35583009AF307 /* NSURL+OAuthString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+OAuthString.m"; sourceTree = "<group>"; };
+		B26A177510B356DC009AF307 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B26A177710B356DC009AF307 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B26A177910B356DC009AF307 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TWToolkit.xcodeproj; path = Frameworks/TWToolkit/TWToolkit.xcodeproj; sourceTree = "<group>"; };
 		B2BA993710B352D3001EEA88 /* TWOAuthKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOAuthKit_Prefix.pch; sourceTree = "<group>"; };
 		B2BA994010B3530B001EEA88 /* TWOAuthKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOAuthKit.h; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libTWOAuthKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTWOAuthKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +88,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				B26A177610B356DC009AF307 /* CoreGraphics.framework in Frameworks */,
+				B26A177810B356DC009AF307 /* SystemConfiguration.framework in Frameworks */,
+				B26A177A10B356DC009AF307 /* UIKit.framework in Frameworks */,
+				B26A17FA10B356E9009AF307 /* libTWToolkit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +121,10 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */,
+				B26A177510B356DC009AF307 /* CoreGraphics.framework */,
+				B26A177710B356DC009AF307 /* SystemConfiguration.framework */,
+				B26A177910B356DC009AF307 /* UIKit.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -144,6 +177,14 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		B26A17F210B356E7009AF307 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B26A17F910B356E7009AF307 /* libTWToolkit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B2BA993610B352D3001EEA88 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,10 +196,10 @@
 		B2BA993F10B352F8001EEA88 /* TWOAuthKit */ = {
 			isa = PBXGroup;
 			children = (
+				B2BA994010B3530B001EEA88 /* TWOAuthKit.h */,
 				B26A172A10B35502009AF307 /* OAuth Core */,
 				B26A171F10B354F5009AF307 /* View Controllers */,
 				B26A174110B3550C009AF307 /* Categories */,
-				B2BA994010B3530B001EEA88 /* TWOAuthKit.h */,
 			);
 			path = TWOAuthKit;
 			sourceTree = "<group>";
@@ -199,6 +240,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B26A17FC10B356F0009AF307 /* PBXTargetDependency */,
 			);
 			name = TWOAuthKit;
 			productName = TWOAuthKit;
@@ -219,12 +261,28 @@
 			mainGroup = 0867D691FE84028FC02AAC07 /* TWOAuthKit */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B26A17F210B356E7009AF307 /* Products */;
+					ProjectRef = B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* TWOAuthKit */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B26A17F910B356E7009AF307 /* libTWToolkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTWToolkit.a;
+			remoteRef = B26A17F810B356E7009AF307 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2AAC07B0554694100DB518D /* Sources */ = {
@@ -245,6 +303,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B26A17FC10B356F0009AF307 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TWToolkit;
+			targetProxy = B26A17FB10B356F0009AF307 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1DEB921F08733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -259,7 +325,12 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/TWOAuthKit_Prefix.pch";
+				HEADER_SEARCH_PATHS = Frameworks/TWToolkit;
 				INSTALL_PATH = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = TWOAuthKit;
 			};
 			name = Debug;

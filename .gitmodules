@@ -1,0 +1,3 @@
+[submodule "Frameworks/TWToolkit"]
+	path = Frameworks/TWToolkit
+	url = git@github.com:tastefulworks/twtoolkit.git
