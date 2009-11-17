@@ -8,12 +8,12 @@
 
 #import "TWTwitterOAuthInternalViewController.h"
 #import "TWTwitterOAuthViewController.h"
-#import "TWLoadingView.h"
 #import "OAConsumer.h"
 #import "OAToken.h"
 #import "TWURLRequest+OAuth.h"
-#import "UIView+fading.h"
-#import "UIWebView+scrolling.h"
+#import <TWToolkit/TWLoadingView.h>
+#import <TWToolkit/UIView+fading.h>
+#import <TWToolkit/UIWebView+scrolling.h>
 
 @interface TWTwitterOAuthInternalViewController (Private)
 

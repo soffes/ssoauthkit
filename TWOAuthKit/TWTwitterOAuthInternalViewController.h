@@ -6,7 +6,7 @@
 //  Copyright 2009 Tasteful Works, Inc. All rights reserved.
 //
 
-#import "TWURLConnection.h"
+#import <TWToolkit/TWURLConnection.h>
 
 @class TWLoadingView;
 @class OAConsumer;

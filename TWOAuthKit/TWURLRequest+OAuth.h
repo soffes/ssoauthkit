@@ -6,7 +6,7 @@
 //  Copyright 2009 Tasteful Works, Inc. All rights reserved.
 //
 
-#import "TWURLRequest.h"
+#import <TWToolkit/TWURLRequest.h>
 
 @class OAToken;
 @class OAConsumer;

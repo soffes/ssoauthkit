@@ -9,11 +9,11 @@
 #import "TWURLRequest+OAuth.h"
 #import "OAToken.h"
 #import "OAConsumer.h"
-#import "TWURLRequest+Parameters.h"
-#import "TWURLRequestParameter.h"
 #import "OAHMAC_SHA1SignatureProvider.h"
-#import "NSString+encoding.h"
 #import "NSURL+OAuthString.h"
+#import <TWToolkit/TWURLRequest+Parameters.h>
+#import <TWToolkit/TWURLRequestParameter.h>
+#import <TWToolkit/NSString+encoding.h>
 
 @implementation TWURLRequest (OAuth)
 

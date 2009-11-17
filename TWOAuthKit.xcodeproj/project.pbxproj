@@ -40,14 +40,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libTWToolkit.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = TWToolkit;
 		};
 		B26A17FB10B356F0009AF307 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* TWToolkit */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = TWToolkit;
 		};
 /* End PBXContainerItemProxy section */
