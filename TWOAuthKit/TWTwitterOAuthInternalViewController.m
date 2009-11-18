@@ -12,8 +12,7 @@
 #import "OAToken.h"
 #import "TWURLRequest+OAuth.h"
 #import <TWToolkit/TWLoadingView.h>
-#import <TWToolkit/UIView+fading.h>
-#import <TWToolkit/UIWebView+scrolling.h>
+#import <TWToolkit/TWCategories.h>
 
 @interface TWTwitterOAuthInternalViewController (Private)
 
@@ -58,10 +57,8 @@
 	self.title = @"Authorize";
 	
 	// Background image
-	NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"TWToolkit.bundle/images/twitter_oauth_background.png"];
-	UIImage *backgroundImage = [UIImage imageWithContentsOfFile:imagePath];
 	UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 190.0)];
-	backgroundImageView.image = backgroundImage;
+	backgroundImageView.image = [UIImage imageNamed:@"images/twitter_oauth_background.png" bundle:@"TWOAuthKit.bundle"];
 	backgroundImageView.opaque = YES;
 	[self.view addSubview:backgroundImageView];
 	[backgroundImageView release];

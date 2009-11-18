@@ -140,10 +140,10 @@
 		B26A171F10B354F5009AF307 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B26A172210B354FF009AF307 /* TWTwitterOAuthInternalViewController.h */,
-				B26A172310B354FF009AF307 /* TWTwitterOAuthInternalViewController.m */,
 				B26A172410B354FF009AF307 /* TWTwitterOAuthViewController.h */,
 				B26A172510B354FF009AF307 /* TWTwitterOAuthViewController.m */,
+				B26A172210B354FF009AF307 /* TWTwitterOAuthInternalViewController.h */,
+				B26A172310B354FF009AF307 /* TWTwitterOAuthInternalViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
