@@ -11,4 +11,3 @@
 #import <TWOAuthKit/TWOAFormRequest.h>
 #import <TWOAuthKit/TWOAuthKitConfiguration.h>
 #import <TWOAuthKit/TWOAToken.h>
-#import <TWOAuthKit/OAConsumer.h>

@@ -113,11 +113,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				B29851BC11F0D856008B1A4A /* CFNetwork.framework */,
-				B29851BE11F0D856008B1A4A /* MobileCoreServices.framework */,
-				B29851C011F0D856008B1A4A /* SystemConfiguration.framework */,
-				B29851C211F0D856008B1A4A /* libz.dylib */,
-				B29851CC11F0D85C008B1A4A /* Security.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -150,6 +145,11 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				B29851BC11F0D856008B1A4A /* CFNetwork.framework */,
+				B29851BE11F0D856008B1A4A /* MobileCoreServices.framework */,
+				B29851C011F0D856008B1A4A /* SystemConfiguration.framework */,
+				B29851C211F0D856008B1A4A /* libz.dylib */,
+				B29851CC11F0D85C008B1A4A /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

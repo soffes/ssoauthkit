@@ -54,8 +54,6 @@
 		B27E19FD11F0BC9700165C54 /* TWOAuthKitConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E19FB11F0BC9700165C54 /* TWOAuthKitConfiguration.h */; };
 		B27E19FE11F0BC9700165C54 /* TWOAuthKitConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E19FC11F0BC9700165C54 /* TWOAuthKitConfiguration.m */; };
 		B27E1A7111F0C1E700165C54 /* libTWToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B27E1A4111F0C1B500165C54 /* libTWToolkit.a */; };
-		B27E1AF211F0D48E00165C54 /* OAConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E1AEE11F0D48E00165C54 /* OAConsumer.h */; };
-		B27E1AF311F0D48E00165C54 /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E1AEF11F0D48E00165C54 /* OAConsumer.m */; };
 		B27E1AF411F0D48E00165C54 /* TWOAToken.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E1AF011F0D48E00165C54 /* TWOAToken.h */; };
 		B27E1AF511F0D48E00165C54 /* TWOAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E1AF111F0D48E00165C54 /* TWOAToken.m */; };
 		B27E1B2611F0D5E000165C54 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27E1B2511F0D5E000165C54 /* CFNetwork.framework */; };
@@ -136,8 +134,6 @@
 		B27E19FB11F0BC9700165C54 /* TWOAuthKitConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOAuthKitConfiguration.h; sourceTree = "<group>"; };
 		B27E19FC11F0BC9700165C54 /* TWOAuthKitConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWOAuthKitConfiguration.m; sourceTree = "<group>"; };
 		B27E1A3911F0C1B500165C54 /* TWToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TWToolkit.xcodeproj; path = TWToolkit/TWToolkit.xcodeproj; sourceTree = "<group>"; };
-		B27E1AEE11F0D48E00165C54 /* OAConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAConsumer.h; sourceTree = "<group>"; };
-		B27E1AEF11F0D48E00165C54 /* OAConsumer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAConsumer.m; sourceTree = "<group>"; };
 		B27E1AF011F0D48E00165C54 /* TWOAToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOAToken.h; sourceTree = "<group>"; };
 		B27E1AF111F0D48E00165C54 /* TWOAToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWOAToken.m; sourceTree = "<group>"; };
 		B27E1B2511F0D5E000165C54 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -369,8 +365,6 @@
 		B27E1AED11F0D48500165C54 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
-				B27E1AEE11F0D48E00165C54 /* OAConsumer.h */,
-				B27E1AEF11F0D48E00165C54 /* OAConsumer.m */,
 				B27E1AF011F0D48E00165C54 /* TWOAToken.h */,
 				B27E1AF111F0D48E00165C54 /* TWOAToken.m */,
 			);
@@ -443,7 +437,6 @@
 				B27E19E511F0BC4700165C54 /* TwitterLoginPopupDelegate.h in Headers */,
 				B27E19E611F0BC4700165C54 /* TwitterLoginUiFeedback.h in Headers */,
 				B27E19FD11F0BC9700165C54 /* TWOAuthKitConfiguration.h in Headers */,
-				B27E1AF211F0D48E00165C54 /* OAConsumer.h in Headers */,
 				B27E1AF411F0D48E00165C54 /* TWOAToken.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,7 +523,6 @@
 				B27E19E011F0BC4700165C54 /* OAuth+UserDefaults.m in Sources */,
 				B27E19E211F0BC4700165C54 /* OAuth.m in Sources */,
 				B27E19FE11F0BC9700165C54 /* TWOAuthKitConfiguration.m in Sources */,
-				B27E1AF311F0D48E00165C54 /* OAConsumer.m in Sources */,
 				B27E1AF511F0D48E00165C54 /* TWOAToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
