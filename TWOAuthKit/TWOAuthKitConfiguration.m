@@ -7,15 +7,15 @@
 //
 
 #import "TWOAuthKitConfiguration.h"
-#import "OAConsumer.h"
+#import "TWOAConsumer.h"
 
 static NSString *consumerKey = nil;
 static NSString *consumerSecret = nil;
 
 @implementation TWOAuthKitConfiguration
 
-+ (OAConsumer *)consumer {
-	return [[[OAConsumer alloc] initWithKey:[self consumerKey] secret:[self consumerSecret]] autorelease];
++ (TWOAConsumer *)consumer {
+	return [[[TWOAConsumer alloc] initWithKey:[self consumerKey] secret:[self consumerSecret]] autorelease];
 }
 
 

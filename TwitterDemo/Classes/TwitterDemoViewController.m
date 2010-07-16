@@ -7,13 +7,13 @@
 //
 
 #import "TwitterDemoViewController.h"
-#import <TWOAuthKit/TWOAuthKit.h>
+#import <TWOAuthKit/TWOAuthKit.h>.
 
 @implementation TwitterDemoViewController
 
 - (void)viewDidLoad {
 //	#error Please set your consumer key and secret
-	[TWOAuthKitConfiguration setConsumerKey:@"xUy7eDoJ4bNwAfZe2hnQ" secret:@"JRtfrkqtKvp0qy2sc13v2MMMmzGmNM69P5xsnz0nk"];
+	[TWOAuthKitConfiguration setConsumerKey:@"MRYaVxPdxijdnFPYBKVQ" secret:@"YCk4IDmXA119BIzqmt569mIXF5R5BBce81F0TQNeSWI"];
 	
 	// Login button
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];

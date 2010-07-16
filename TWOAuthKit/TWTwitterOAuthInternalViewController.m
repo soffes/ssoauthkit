@@ -8,7 +8,6 @@
 
 #import "TWTwitterOAuthInternalViewController.h"
 #import "TWTwitterOAuthViewController.h"
-#import "OAConsumer.h"
 #import "TWOAToken.h"
 #import "TWOAFormRequest.h"
 #import "ASIHTTPRequest.h"

@@ -11,6 +11,7 @@
 #import "TWOAuthKitConfiguration.h"
 #import "OAHMAC_SHA1SignatureProvider.h"
 #import "NSURL+OAuthString.h"
+#import "NSDictionary+oaCompareKeys.h"
 #import <TWToolkit/NSString+encoding.h>
 
 @implementation TWOAFormRequest
@@ -48,8 +49,13 @@
 		return;
 	}
 	
+	// Set to POST
+	if ([self.requestMethod isEqual:@"GET"]) {
+		self.requestMethod = @"POST";
+	}
+	
 	// Signature provider
-	id<OASignatureProviding> signatureProvider = nil;// [[OAHMAC_SHA1SignatureProvider alloc] init];
+	id<OASignatureProviding> signatureProvider = [[OAHMAC_SHA1SignatureProvider alloc] init];
 	
 	// Timestamp
 	NSString *timestamp = [NSString stringWithFormat:@"%d", time(NULL)];
@@ -70,9 +76,10 @@
 									  [NSDictionary dictionaryWithObjectsAndKeys:@"1.0", @"value", @"oauth_version", @"key", nil],
 									  nil];
 	
-	if ([token.key isEqualToString:@""] == NO) {
-		[parameterPairs addObject:[NSDictionary dictionaryWithObject:token.key forKey:@"oauth_token"]];
+	if (token && [token.key isEqualToString:@""] == NO) {
+		[parameterPairs addObject:[NSDictionary dictionaryWithObjectsAndKeys:token.key, @"value", @"oauth_token", @"key", nil]];
 	}
+	NSLog(@"parameterPairs: %@", parameterPairs);
 	
 	// Add existing parameters
 	if (postData) {
@@ -80,49 +87,50 @@
 	}
 	
 	// Sort and concatenate
-	NSMutableString *normalizedRequestParameters = [[NSMutableString alloc] init];
-	NSArray *sortedPairs = [parameterPairs sortedArrayUsingSelector:@selector(compare:)];
+	NSArray *sortedPairs = [parameterPairs sortedArrayUsingSelector:@selector(oaCompareKeys:)];
 	[parameterPairs release];
 	
-	NSUInteger i = 0;
-	NSUInteger count = [parameterPairs count] - 1;
+	NSMutableArray *pieces = [[NSMutableArray alloc] init];
 	for (NSDictionary *pair in sortedPairs) {
-        NSString *string = [NSString stringWithFormat:@"%@=%@%@", [self encodeURL:[pair objectForKey:@"key"]], [self encodeURL:[pair objectForKey:@"value"]], (i < count ?  @"&" : @"")]; 
-		[normalizedRequestParameters appendString:string];
-		i++;
+        [pieces addObject:[NSString stringWithFormat:@"%@=%@", [[pair objectForKey:@"key"] URLEncodedString], [[pair objectForKey:@"value"] URLEncodedString]]];
 	}
+	NSString *normalizedRequestParameters = [pieces componentsJoinedByString:@"&"];
+	[pieces release];
 	
 	// OAuth Spec, Section 9.1.2 "Concatenate Request Elements"
 	NSString *signatureBaseString = [NSString stringWithFormat:@"%@&%@&%@", self.requestMethod,
 									 [[self.url OAuthString] URLEncodedString],
 									 [normalizedRequestParameters URLEncodedString]];
-	[normalizedRequestParameters release];
+	NSLog(@"signatureBaseString: %@", signatureBaseString);
 	
 	// Sign
 	// Secrets must be urlencoded before concatenated with '&'
-	NSString *signature = [signatureProvider signClearText:signatureBaseString withSecret:
-						   [NSString stringWithFormat:@"%@&%@", [[TWOAuthKitConfiguration consumerSecret] URLEncodedString], 
-							[token.secret URLEncodedString]]];
+	NSString *tokenSecret = token ? [token.secret URLEncodedString] : @"";
+	NSString *secret = [NSString stringWithFormat:@"%@&%@", [[TWOAuthKitConfiguration consumerSecret] URLEncodedString], tokenSecret];
+	NSString *signature = [signatureProvider signClearText:signatureBaseString withSecret:secret];
+	NSLog(@"secret: %@", secret);
+	NSLog(@"signature: %@", signature);
 	
 	// Set OAuth headers
 	NSString *oauthToken = @"";
-	if ([token.key isEqualToString:@""] == NO) {
+	if (token && [token.key isEqualToString:@""] == NO) {
 		oauthToken = [NSString stringWithFormat:@"oauth_token=\"%@\", ", [token.key URLEncodedString]];
 	}
 	
-	NSString *oauthHeader = [NSString stringWithFormat:@"OAuth oauth_consumer_key=\"%@\", %@oauth_signature_method=\"%@\", oauth_signature=\"%@\", oauth_timestamp=\"%@\", oauth_nonce=\"%@\", oauth_version=\"1.0\"",
+	NSString *oauthHeader = [NSString stringWithFormat:@"OAuth oauth_nonce=\"%@\", oauth_signature_method=\"%@\", oauth_timestamp=\"%@\", oauth_consumer_key=\"%@\", %@oauth_signature=\"%@\", oauth_version=\"1.0\"",
+							 [nonce URLEncodedString],
+							 [[signatureProvider name] URLEncodedString],
+							 [timestamp URLEncodedString],
 							 [[TWOAuthKitConfiguration consumerKey] URLEncodedString],
 							 oauthToken,
-							 [[signatureProvider name] URLEncodedString],
-							 [signature URLEncodedString],
-							 timestamp,
-							 nonce];
+							 [signature URLEncodedString]];
 	
 	// Clean up
 	[signatureProvider release];
 	
 	// Add the header
 	[self addRequestHeader:@"Authorization" value:oauthHeader];
+	NSLog(@"Authorization: %@", oauthHeader);
 }
 
 @end
