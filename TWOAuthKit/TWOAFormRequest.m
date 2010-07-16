@@ -58,9 +58,12 @@
 	}
 	
 	// Convert params
-	NSMutableDictionary *convertedParams = [[NSMutableDictionary alloc] init];
-	for (NSDictionary *value in postData) {
-        [convertedParams setObject:[value objectForKey:@"value"] forKey:[value objectForKey:@"key"]];
+	NSMutableDictionary *convertedParams = nil;
+	if (postData) {
+		convertedParams = [[NSMutableDictionary alloc] init];
+		for (NSDictionary *value in postData) {
+			[convertedParams setObject:[value objectForKey:@"value"] forKey:[value objectForKey:@"key"]];
+		}
 	}
 	
 	// Add header
