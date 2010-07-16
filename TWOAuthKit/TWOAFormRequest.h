@@ -8,13 +8,13 @@
 
 #import "ASIFormDataRequest.h"
 
-@class OAToken;
+@class TWOAToken;
 
 @interface TWOAFormRequest : ASIFormDataRequest {
 	
-	OAToken *token;
+	TWOAToken *token;
 }
 
-@property (retain) OAToken *token;
+@property (retain) TWOAToken *token;
 
 @end

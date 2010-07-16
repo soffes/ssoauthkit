@@ -13,6 +13,12 @@ static NSString *consumerSecret = nil;
 
 @implementation TWOAuthKitConfiguration
 
++ (void)setConsumerKey:(NSString *)key secret:(NSString *)secret {
+	[self setConsumerKey:key];
+	[self setConsumerSecret:secret];
+}
+
+
 + (void)setConsumerKey:(NSString *)key {
 	[consumerKey release];
 	consumerKey = [key retain];

@@ -6,7 +6,9 @@
 //  Copyright 2009 Tasteful Works, Inc. All rights reserved.
 //
 
-#import <TWOAuthKit/TWURLRequest+OAuth.h>
-#import <TWOAuthKit/OAConsumer.h>
-#import <TWOAuthKit/OAToken.h>
 #import <TWOAuthKit/TWTwitterOAuthViewController.h>
+#import <TWOAuthKit/TWOARequest.h>
+#import <TWOAuthKit/TWOAFormRequest.h>
+#import <TWOAuthKit/TWOAuthKitConfiguration.h>
+#import <TWOAuthKit/TWOAToken.h>
+#import <TWOAuthKit/OAConsumer.h>

@@ -18,7 +18,7 @@
 @property (nonatomic, assign) id<TWTwitterOAuthViewControllerDelegate> delegate;
 @property (nonatomic, retain) OAConsumer *consumer;
 
-- (id)initWithDelegate:(id<TWTwitterOAuthViewControllerDelegate>)aDelegate consumer:(OAConsumer *)aConsumer;
+- (id)initWithDelegate:(id<TWTwitterOAuthViewControllerDelegate>)aDelegate;
 - (void)cancel:(id)sender;
 
 @end

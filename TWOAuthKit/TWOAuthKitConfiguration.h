@@ -10,6 +10,8 @@
 
 }
 
++ (void)setConsumerKey:(NSString *)key secret:(NSString *)secret;
+
 + (void)setConsumerKey:(NSString *)key;
 + (NSString *)consumerKey;
 

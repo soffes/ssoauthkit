@@ -6,15 +6,15 @@
 //  Copyright 2010 Tasteful Works. All rights reserved.
 //
 
-#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequest.h"
 
-@class OAToken;
+@class TWOAToken;
 
 @interface TWOARequest : ASIHTTPRequest {
 
-	OAToken *token;
+	TWOAToken *token;
 }
 
-@property (retain) OAToken *token;
+@property (retain) TWOAToken *token;
 
 @end

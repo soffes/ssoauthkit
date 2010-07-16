@@ -8,7 +8,7 @@
 
 #import "TWOARequest.h"
 #import "OAuth.h"
-#import "OAToken.h"
+#import "TWOAToken.h"
 #import "TWOAuthKitConfiguration.h"
 
 @implementation TWOARequest
@@ -21,7 +21,15 @@
 }
 
 
-- (void)setToken:(OAToken *)aToken {
+- (id)initWithURL:(NSURL *)newURL {
+	if ((self = [super initWithURL:newURL])) {
+		self.useCookiePersistence = NO;
+	}
+	return self;
+}
+
+
+- (void)setToken:(TWOAToken *)aToken {
 	if (aToken == token) {
 		return;
 	}
@@ -33,6 +41,10 @@
 
 - (void)buildRequestHeaders {
 	[super buildRequestHeaders];
+	
+	if ([TWOAuthKitConfiguration consumerKey] == nil || [TWOAuthKitConfiguration consumerSecret] == nil) {
+		return;
+	}
 	
 	// Initialize OAuth with consumer credentials
 	OAuth *oAuth = [[OAuth alloc] initWithConsumerKey:[TWOAuthKitConfiguration consumerKey] andConsumerSecret:[TWOAuthKitConfiguration consumerSecret]];

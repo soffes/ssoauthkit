@@ -9,10 +9,9 @@
 #import "TWTwitterOAuthInternalViewController.h"
 #import "TWTwitterOAuthViewController.h"
 #import "OAConsumer.h"
-#import "OAToken.h"
+#import "TWOAToken.h"
 #import "TWOAFormRequest.h"
 #import "ASIHTTPRequest.h"
-#import "NSObject+yajl.h"
 #import <TWToolkit/TWLoadingView.h>
 #import <TWToolkit/TWCategories.h>
 
@@ -31,11 +30,8 @@
 
 @synthesize consumer;
 @synthesize requestToken;
-@synthesize accessToken;
 
-#pragma mark -
 #pragma mark NSObject
-#pragma mark -
 
 - (void)dealloc {
 	request.delegate = nil;
@@ -46,7 +42,6 @@
 	[authorizationView release];
 	self.consumer = nil;
 	self.requestToken = nil;
-	self.accessToken = nil;
 	[super dealloc];
 }
 
@@ -61,9 +56,11 @@
 	self.title = @"Authorize";
 	
 	// Background image
-	UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 190.0)];
+	UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 190.0)];
+	backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
 	backgroundImageView.image = [UIImage imageNamed:@"images/twitter_oauth_background.png" bundle:@"TWOAuthKit.bundle"];
 	backgroundImageView.opaque = YES;
+	backgroundImageView.contentMode = UIViewContentModeTopLeft;
 	[self.view addSubview:backgroundImageView];
 	[backgroundImageView release];
 	self.view.backgroundColor = [UIColor colorWithRed:0.753 green:0.875 blue:0.925 alpha:1.0];
@@ -101,25 +98,25 @@
 }
 
 
-// Step 1
+// *** Step 1
 - (void)_requestRequestToken {
 
 	// Update loading text
 	loadingView.text = @"Requesting token...";
 	
 	// Perform request for request token
-	NSURL *url = [[NSURL alloc] initWithString:@"http://twitter.com/oauth/request_token"];
+	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/oauth/request_token"];
 	request = [[TWOAFormRequest alloc] initWithURL:url];
 	request.delegate = self;
 	[request startAsynchronous];
 }
 
 
-// Step 2
+// *** Step 2
 - (void)_requestAccessToken {	
 	loadingView.text = @"Authorizing...";
 	
-	NSString *urlString = [[NSString alloc] initWithFormat:@"http://twitter.com/oauth/authorize?oauth_token=%@&oauth_callback=oob", requestToken.key];
+	NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@&oauth_callback=oob", requestToken.key];
 	NSURL *url = [[NSURL alloc] initWithString:urlString];
 	NSURLRequest *aRequest = [[NSURLRequest alloc] initWithURL:url];
 	[url release];
@@ -139,51 +136,41 @@
 }
 
 
-// Step 3
+// *** Step 3
 - (void)_verifyAccessTokenWithPin:(NSString *)pin {
 	loadingView.text = @"Verifying...";
 	
 	[authorizationView fadeOut];
 	[authorizationView release];
-	authorizationView = nil;	
-	
-	NSString *urlString = [[NSString alloc] initWithFormat:@"http://twitter.com/oauth/access_token?oauth_token=%@&oauth_verifier=%@", requestToken.key, pin];
-	NSURL *url = [[NSURL alloc] initWithString:urlString];
+	authorizationView = nil;
 
+	request.delegate = nil;
 	[request cancel];
 	[request release];
 	
+	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/oauth/access_token"];
+
 	request = [[TWOAFormRequest alloc] initWithURL:url];
 	request.token = requestToken;
 	request.delegate = self;
-	[request startAsynchronous];
-	
-	[url release];
-	[urlString release];
-}
-
-
-// Step 4
-- (void)_requestUser {
-	[request cancel];
-	[request release];
-	
-	// Build Request
-	NSURL *url = [[NSURL alloc] initWithString:@"http://twitter.com/account/verify_credentials.json"];
-	request = [[TWOAFormRequest alloc] initWithURL:url];
-	request.delegate = self;
-	request.token = accessToken;
+	[request addPostValue:pin forKey:@"oauth_verifier"];
 	[request startAsynchronous];
 	
 	[url release];
 }
-
 
 #pragma mark -
 #pragma mark TWURLConnectionDelegate
 #pragma mark -
 
+- (void)requestStarted:(ASIHTTPRequest *)aRequest {
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+
 - (void)requestFailed:(ASIHTTPRequest *)aRequest {
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+	
 	if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
 		[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didFailWithError:[aRequest error]];
 	}
@@ -191,6 +178,7 @@
 
 
 - (void)requestFinished:(ASIHTTPRequest *)aRequest {
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
 	NSString *path = [[aRequest url] path];
 	
@@ -210,7 +198,7 @@
 		}
 		
 		// Get token
-		OAToken *aToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
+		TWOAToken *aToken = [[TWOAToken alloc] initWithHTTPResponseBody:httpBody];
 		
 		// Check for token error
 		if (!aToken.key || !aToken.secret) {
@@ -238,11 +226,11 @@
 	else if ([path isEqualToString:@"/oauth/access_token"]) {
 		
 		// Get token
-		OAToken *aToken = [[OAToken alloc] initWithHTTPResponseBody:[aRequest responseString]];
+		TWOAToken *accessToken = [[TWOAToken alloc] initWithHTTPResponseBody:[aRequest responseString]];
+		accessToken.authorized = YES;
 		
 		// Check for token error
-		if (!aToken.key || !aToken.secret) {
-			[aToken release];
+		if (accessToken == nil) {
 			if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
 				NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:@"The access token could not be generated", NSLocalizedDescriptionKey, nil];
 				NSError *error = [NSError errorWithDomain:@"com.tasetfulworks.twtwitteroauthviewcontroller" code:-1 userInfo:userInfo];
@@ -251,31 +239,14 @@
 			return;
 		}
 		
-		// Store token
-		self.accessToken = aToken;
-		[aToken release];
-		
-		// Lookup user
-		[self _requestUser];
-		return;
-	}
-	
-	// *** Step 4 - User lookup
-	else if ([path isEqualToString:@"/account/verify_credentials.json"]) {
-		
-		NSError *error = nil;
-		NSDictionary *dictionary = [[aRequest responseString] yajl_JSON:&error];
-		if (error) {
-			if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-				[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didFailWithError:[aRequest error]];
-			}
-			return;
-		}
-		
+		[accessToken release];
+				
 		// Notify delegate
 		if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didAuthorizeWithAccessToken:userDictionary:)]) {
-			[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didAuthorizeWithAccessToken:accessToken userDictionary:dictionary];
+			//[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didAuthorizeWithAccessToken:accessToken userDictionary:dictionary];
 		}
+		
+		return;
 	}
 }
 
@@ -285,13 +256,16 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+	if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
+		[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didFailWithError:error];
+	}
 }
 
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)aRequest navigationType:(UIWebViewNavigationType)navigationType {
 	NSURL *url = [aRequest URL];
 	// TODO: allow signup too
-	BOOL allow = ([[url host] isEqual:@"twitter.com"] && [[url path] isEqual:@"/oauth/authorize"]);
+	BOOL allow = ([[url host] isEqual:@"api.twitter.com"] && [[url path] isEqual:@"/oauth/authorize"]);
 	if (allow) {
 		[authorizationView fadeOut];
 	}

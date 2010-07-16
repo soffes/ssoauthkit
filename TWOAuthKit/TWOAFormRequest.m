@@ -9,7 +9,7 @@
 #import "TWOAFormRequest.h"
 #import "TWOAuthKitConfiguration.h"
 #import "OAuth.h"
-#import "OAToken.h"
+#import "TWOAToken.h"
 
 @implementation TWOAFormRequest
 
@@ -21,7 +21,15 @@
 }
 
 
-- (void)setToken:(OAToken *)aToken {
+- (id)initWithURL:(NSURL *)newURL {
+	if ((self = [super initWithURL:newURL])) {
+		self.useCookiePersistence = NO;
+	}
+	return self;
+}
+
+
+- (void)setToken:(TWOAToken *)aToken {
 	if (aToken == token) {
 		return;
 	}
@@ -35,13 +43,18 @@
 
 - (void)buildRequestHeaders {
 	[super buildRequestHeaders];
-		
+	
+	if ([TWOAuthKitConfiguration consumerKey] == nil || [TWOAuthKitConfiguration consumerSecret] == nil) {
+		return;
+	}
+	
 	// Initialize OAuth with consumer credentials
 	OAuth *oAuth = [[OAuth alloc] initWithConsumerKey:[TWOAuthKitConfiguration consumerKey] andConsumerSecret:[TWOAuthKitConfiguration consumerSecret]];
 	
 	// Set token
 	if (token) {
 		oAuth.oauth_token = [token URLEncodedValue];
+		oAuth.oauth_token_authorized = token.authorized;
 	}
 	
 	// Convert params

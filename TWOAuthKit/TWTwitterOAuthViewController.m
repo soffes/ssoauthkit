@@ -8,6 +8,8 @@
 
 #import "TWTwitterOAuthViewController.h"
 #import "TWTwitterOAuthInternalViewController.h"
+#import "TWOAuthKitConfiguration.h"
+#import "OAConsumer.h"
 
 @implementation TWTwitterOAuthViewController
 
@@ -36,11 +38,14 @@
 #pragma mark Initalizer
 #pragma mark -
 
-- (id)initWithDelegate:(id<TWTwitterOAuthViewControllerDelegate>)aDelegate consumer:(OAConsumer *)aConsumer {
+- (id)initWithDelegate:(id<TWTwitterOAuthViewControllerDelegate>)aDelegate {
 	TWTwitterOAuthInternalViewController *internalViewController = [[TWTwitterOAuthInternalViewController alloc] initWithNibName:nil bundle:nil];
 	if (self = [super initWithRootViewController:internalViewController]) {
 		self.delegate = aDelegate;
+		
+		OAConsumer *aConsumer = [[OAConsumer alloc] initWithKey:[TWOAuthKitConfiguration consumerKey] secret:[TWOAuthKitConfiguration consumerSecret]];
 		self.consumer = aConsumer;
+		[aConsumer release];
 	}
 	[internalViewController release];
 	return self;
