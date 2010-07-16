@@ -12,42 +12,123 @@
 		B26A172710B354FF009AF307 /* TWTwitterOAuthInternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A172310B354FF009AF307 /* TWTwitterOAuthInternalViewController.m */; };
 		B26A172810B354FF009AF307 /* TWTwitterOAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A172410B354FF009AF307 /* TWTwitterOAuthViewController.h */; };
 		B26A172910B354FF009AF307 /* TWTwitterOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A172510B354FF009AF307 /* TWTwitterOAuthViewController.m */; };
-		B26A173610B3550A009AF307 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = B26A172B10B3550A009AF307 /* Base64Transcoder.c */; };
-		B26A173710B3550A009AF307 /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A172C10B3550A009AF307 /* Base64Transcoder.h */; };
-		B26A173810B3550A009AF307 /* OAConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A172D10B3550A009AF307 /* OAConsumer.h */; };
-		B26A173910B3550A009AF307 /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A172E10B3550A009AF307 /* OAConsumer.m */; };
-		B26A173A10B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A172F10B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.h */; };
-		B26A173B10B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A173010B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.m */; };
-		B26A173C10B3550A009AF307 /* OAPlaintextSignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A173110B3550A009AF307 /* OAPlaintextSignatureProvider.h */; };
-		B26A173D10B3550A009AF307 /* OAPlaintextSignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A173210B3550A009AF307 /* OAPlaintextSignatureProvider.m */; };
-		B26A173E10B3550A009AF307 /* OASignatureProviding.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A173310B3550A009AF307 /* OASignatureProviding.h */; };
-		B26A173F10B3550A009AF307 /* OAToken.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A173410B3550A009AF307 /* OAToken.h */; };
-		B26A174010B3550A009AF307 /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A173510B3550A009AF307 /* OAToken.m */; };
-		B26A174410B35518009AF307 /* TWURLRequest+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A174210B35518009AF307 /* TWURLRequest+OAuth.h */; };
-		B26A174510B35518009AF307 /* TWURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A174310B35518009AF307 /* TWURLRequest+OAuth.m */; };
-		B26A175110B35583009AF307 /* NSURL+OAuthString.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A174F10B35583009AF307 /* NSURL+OAuthString.h */; };
-		B26A175210B35583009AF307 /* NSURL+OAuthString.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A175010B35583009AF307 /* NSURL+OAuthString.m */; };
 		B26A177610B356DC009AF307 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A177510B356DC009AF307 /* CoreGraphics.framework */; };
 		B26A177810B356DC009AF307 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A177710B356DC009AF307 /* SystemConfiguration.framework */; };
 		B26A177A10B356DC009AF307 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A177910B356DC009AF307 /* UIKit.framework */; };
-		B26A17FA10B356E9009AF307 /* libTWToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B26A17F910B356E7009AF307 /* libTWToolkit.a */; };
+		B27E188911F0B95800165C54 /* ASIAuthenticationDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E180811F0B95800165C54 /* ASIAuthenticationDialog.h */; };
+		B27E188A11F0B95800165C54 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E180911F0B95800165C54 /* ASIAuthenticationDialog.m */; };
+		B27E188B11F0B95800165C54 /* ASICacheDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E180A11F0B95800165C54 /* ASICacheDelegate.h */; };
+		B27E188C11F0B95800165C54 /* ASIDownloadCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E180B11F0B95800165C54 /* ASIDownloadCache.h */; };
+		B27E188D11F0B95800165C54 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E180C11F0B95800165C54 /* ASIDownloadCache.m */; };
+		B27E188E11F0B95800165C54 /* ASIFormDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E180D11F0B95800165C54 /* ASIFormDataRequest.h */; };
+		B27E188F11F0B95800165C54 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E180E11F0B95800165C54 /* ASIFormDataRequest.m */; };
+		B27E189011F0B95800165C54 /* ASIHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E180F11F0B95800165C54 /* ASIHTTPRequest.h */; };
+		B27E189111F0B95800165C54 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E181011F0B95800165C54 /* ASIHTTPRequest.m */; };
+		B27E189211F0B95800165C54 /* ASIHTTPRequestConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E181111F0B95800165C54 /* ASIHTTPRequestConfig.h */; };
+		B27E189311F0B95800165C54 /* ASIHTTPRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E181211F0B95800165C54 /* ASIHTTPRequestDelegate.h */; };
+		B27E189411F0B95800165C54 /* ASIInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E181311F0B95800165C54 /* ASIInputStream.h */; };
+		B27E189511F0B95800165C54 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E181411F0B95800165C54 /* ASIInputStream.m */; };
+		B27E189611F0B95800165C54 /* ASINetworkQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E181511F0B95800165C54 /* ASINetworkQueue.h */; };
+		B27E189711F0B95800165C54 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E181611F0B95800165C54 /* ASINetworkQueue.m */; };
+		B27E189811F0B95800165C54 /* ASIProgressDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E181711F0B95800165C54 /* ASIProgressDelegate.h */; };
+		B27E18C911F0B95800165C54 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E184F11F0B95800165C54 /* Reachability.h */; };
+		B27E18CA11F0B95800165C54 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E185011F0B95800165C54 /* Reachability.m */; };
+		B27E192211F0BB0C00165C54 /* TWOAFormRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E191E11F0BB0C00165C54 /* TWOAFormRequest.h */; };
+		B27E192311F0BB0C00165C54 /* TWOAFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E191F11F0BB0C00165C54 /* TWOAFormRequest.m */; };
+		B27E192411F0BB0C00165C54 /* TWOARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E192011F0BB0C00165C54 /* TWOARequest.h */; };
+		B27E192511F0BB0C00165C54 /* TWOARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E192111F0BB0C00165C54 /* TWOARequest.m */; };
+		B27E19D411F0BC4700165C54 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = B27E198011F0BC4700165C54 /* Base64Transcoder.c */; };
+		B27E19D511F0BC4700165C54 /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198111F0BC4700165C54 /* Base64Transcoder.h */; };
+		B27E19D611F0BC4700165C54 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = B27E198211F0BC4700165C54 /* hmac.c */; };
+		B27E19D711F0BC4700165C54 /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198311F0BC4700165C54 /* hmac.h */; };
+		B27E19D811F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198411F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h */; };
+		B27E19D911F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E198511F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m */; };
+		B27E19DA11F0BC4700165C54 /* OASignatureProviding.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198611F0BC4700165C54 /* OASignatureProviding.h */; };
+		B27E19DB11F0BC4700165C54 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = B27E198711F0BC4700165C54 /* sha1.c */; };
+		B27E19DC11F0BC4700165C54 /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198811F0BC4700165C54 /* sha1.h */; };
+		B27E19DD11F0BC4700165C54 /* NSString+URLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198911F0BC4700165C54 /* NSString+URLEncoding.h */; };
+		B27E19DE11F0BC4700165C54 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E198A11F0BC4700165C54 /* NSString+URLEncoding.m */; };
+		B27E19DF11F0BC4700165C54 /* OAuth+UserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198B11F0BC4700165C54 /* OAuth+UserDefaults.h */; };
+		B27E19E011F0BC4700165C54 /* OAuth+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E198C11F0BC4700165C54 /* OAuth+UserDefaults.m */; };
+		B27E19E111F0BC4700165C54 /* OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198D11F0BC4700165C54 /* OAuth.h */; };
+		B27E19E211F0BC4700165C54 /* OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E198E11F0BC4700165C54 /* OAuth.m */; };
+		B27E19E411F0BC4700165C54 /* OAuthTwitterCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E199111F0BC4700165C54 /* OAuthTwitterCallbacks.h */; };
+		B27E19E511F0BC4700165C54 /* TwitterLoginPopupDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E199211F0BC4700165C54 /* TwitterLoginPopupDelegate.h */; };
+		B27E19E611F0BC4700165C54 /* TwitterLoginUiFeedback.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E199311F0BC4700165C54 /* TwitterLoginUiFeedback.h */; };
+		B27E19FD11F0BC9700165C54 /* TWOAuthKitConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E19FB11F0BC9700165C54 /* TWOAuthKitConfiguration.h */; };
+		B27E19FE11F0BC9700165C54 /* TWOAuthKitConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E19FC11F0BC9700165C54 /* TWOAuthKitConfiguration.m */; };
+		B27E1A7011F0C1E400165C54 /* libYAJLIPhoneDevice4_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B27E1A5811F0C1C000165C54 /* libYAJLIPhoneDevice4_0.a */; };
+		B27E1A7111F0C1E700165C54 /* libTWToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B27E1A4111F0C1B500165C54 /* libTWToolkit.a */; };
+		B27E1A8811F0C2D200165C54 /* OAConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E1A8411F0C2D200165C54 /* OAConsumer.h */; };
+		B27E1A8911F0C2D200165C54 /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E1A8511F0C2D200165C54 /* OAConsumer.m */; };
+		B27E1A8A11F0C2D200165C54 /* OAToken.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E1A8611F0C2D200165C54 /* OAToken.h */; };
+		B27E1A8B11F0C2D200165C54 /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E1A8711F0C2D200165C54 /* OAToken.m */; };
 		B2BA993810B352D3001EEA88 /* TWOAuthKit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = B2BA993710B352D3001EEA88 /* TWOAuthKit_Prefix.pch */; };
 		B2BA994210B3530B001EEA88 /* TWOAuthKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B2BA994010B3530B001EEA88 /* TWOAuthKit.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B26A17F810B356E7009AF307 /* PBXContainerItemProxy */ = {
+		B27E1A4011F0C1B500165C54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */;
+			containerPortal = B27E1A3911F0C1B500165C54 /* TWToolkit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libTWToolkit.a */;
 			remoteInfo = TWToolkit;
 		};
-		B26A17FB10B356F0009AF307 /* PBXContainerItemProxy */ = {
+		B27E1A5111F0C1C000165C54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */;
+			containerPortal = B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libYAJLIPhoneDevice.a */;
+			remoteInfo = "YAJLIPhone (Device-3.0)";
+		};
+		B27E1A5311F0C1C000165C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00C405EB0FE779BF003CE908 /* libYAJLIPhoneSimulator.a */;
+			remoteInfo = "YAJLIPhone (Simulator-3.0)";
+		};
+		B27E1A5511F0C1C000165C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00C4054D0FE77760003CE908 /* Tests.app */;
+			remoteInfo = Tests;
+		};
+		B27E1A5711F0C1C000165C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0065977C11BEEF4000E89ABD /* libYAJLIPhoneDevice4_0.a */;
+			remoteInfo = "YAJLIPhone (Device-4.0)";
+		};
+		B27E1A5911F0C1C000165C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 006597AC11BEEF4800E89ABD /* libYAJLIPhoneSimulator4_0.a */;
+			remoteInfo = "YAJLIPhone (Simulator-4.0)";
+		};
+		B27E1A5B11F0C1C000165C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 006597EA11BEEF5400E89ABD /* Tests.app */;
+			remoteInfo = "Tests (4.0)";
+		};
+		B27E1A7211F0C1EF00165C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteGlobalIDString = 0065975811BEEF4000E89ABD /* YAJLIPhone (Device-4.0) */;
+			remoteInfo = "YAJLIPhone (Device-4.0)";
+		};
+		B27E1A7411F0C1EF00165C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B27E1A3911F0C1B500165C54 /* TWToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* TWToolkit */;
 			remoteInfo = TWToolkit;
 		};
 /* End PBXContainerItemProxy section */
@@ -58,25 +139,57 @@
 		B26A172310B354FF009AF307 /* TWTwitterOAuthInternalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTwitterOAuthInternalViewController.m; sourceTree = "<group>"; };
 		B26A172410B354FF009AF307 /* TWTwitterOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTwitterOAuthViewController.h; sourceTree = "<group>"; };
 		B26A172510B354FF009AF307 /* TWTwitterOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTwitterOAuthViewController.m; sourceTree = "<group>"; };
-		B26A172B10B3550A009AF307 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
-		B26A172C10B3550A009AF307 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
-		B26A172D10B3550A009AF307 /* OAConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAConsumer.h; sourceTree = "<group>"; };
-		B26A172E10B3550A009AF307 /* OAConsumer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAConsumer.m; sourceTree = "<group>"; };
-		B26A172F10B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAHMAC_SHA1SignatureProvider.h; sourceTree = "<group>"; };
-		B26A173010B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAHMAC_SHA1SignatureProvider.m; sourceTree = "<group>"; };
-		B26A173110B3550A009AF307 /* OAPlaintextSignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPlaintextSignatureProvider.h; sourceTree = "<group>"; };
-		B26A173210B3550A009AF307 /* OAPlaintextSignatureProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPlaintextSignatureProvider.m; sourceTree = "<group>"; };
-		B26A173310B3550A009AF307 /* OASignatureProviding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OASignatureProviding.h; sourceTree = "<group>"; };
-		B26A173410B3550A009AF307 /* OAToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAToken.h; sourceTree = "<group>"; };
-		B26A173510B3550A009AF307 /* OAToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAToken.m; sourceTree = "<group>"; };
-		B26A174210B35518009AF307 /* TWURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWURLRequest+OAuth.h"; sourceTree = "<group>"; };
-		B26A174310B35518009AF307 /* TWURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWURLRequest+OAuth.m"; sourceTree = "<group>"; };
-		B26A174F10B35583009AF307 /* NSURL+OAuthString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+OAuthString.h"; sourceTree = "<group>"; };
-		B26A175010B35583009AF307 /* NSURL+OAuthString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+OAuthString.m"; sourceTree = "<group>"; };
 		B26A177510B356DC009AF307 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B26A177710B356DC009AF307 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B26A177910B356DC009AF307 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TWToolkit.xcodeproj; path = Frameworks/TWToolkit/TWToolkit.xcodeproj; sourceTree = "<group>"; };
+		B27E180811F0B95800165C54 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		B27E180911F0B95800165C54 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		B27E180A11F0B95800165C54 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		B27E180B11F0B95800165C54 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		B27E180C11F0B95800165C54 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		B27E180D11F0B95800165C54 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		B27E180E11F0B95800165C54 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		B27E180F11F0B95800165C54 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		B27E181011F0B95800165C54 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		B27E181111F0B95800165C54 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		B27E181211F0B95800165C54 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		B27E181311F0B95800165C54 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		B27E181411F0B95800165C54 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		B27E181511F0B95800165C54 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		B27E181611F0B95800165C54 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		B27E181711F0B95800165C54 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		B27E184F11F0B95800165C54 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		B27E185011F0B95800165C54 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		B27E191E11F0BB0C00165C54 /* TWOAFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOAFormRequest.h; sourceTree = "<group>"; };
+		B27E191F11F0BB0C00165C54 /* TWOAFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWOAFormRequest.m; sourceTree = "<group>"; };
+		B27E192011F0BB0C00165C54 /* TWOARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOARequest.h; sourceTree = "<group>"; };
+		B27E192111F0BB0C00165C54 /* TWOARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWOARequest.m; sourceTree = "<group>"; };
+		B27E198011F0BC4700165C54 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		B27E198111F0BC4700165C54 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		B27E198211F0BC4700165C54 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		B27E198311F0BC4700165C54 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		B27E198411F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAHMAC_SHA1SignatureProvider.h; sourceTree = "<group>"; };
+		B27E198511F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAHMAC_SHA1SignatureProvider.m; sourceTree = "<group>"; };
+		B27E198611F0BC4700165C54 /* OASignatureProviding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OASignatureProviding.h; sourceTree = "<group>"; };
+		B27E198711F0BC4700165C54 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		B27E198811F0BC4700165C54 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		B27E198911F0BC4700165C54 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		B27E198A11F0BC4700165C54 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		B27E198B11F0BC4700165C54 /* OAuth+UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAuth+UserDefaults.h"; sourceTree = "<group>"; };
+		B27E198C11F0BC4700165C54 /* OAuth+UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAuth+UserDefaults.m"; sourceTree = "<group>"; };
+		B27E198D11F0BC4700165C54 /* OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth.h; sourceTree = "<group>"; };
+		B27E198E11F0BC4700165C54 /* OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth.m; sourceTree = "<group>"; };
+		B27E199111F0BC4700165C54 /* OAuthTwitterCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthTwitterCallbacks.h; sourceTree = "<group>"; };
+		B27E199211F0BC4700165C54 /* TwitterLoginPopupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterLoginPopupDelegate.h; sourceTree = "<group>"; };
+		B27E199311F0BC4700165C54 /* TwitterLoginUiFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterLoginUiFeedback.h; sourceTree = "<group>"; };
+		B27E19FB11F0BC9700165C54 /* TWOAuthKitConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOAuthKitConfiguration.h; sourceTree = "<group>"; };
+		B27E19FC11F0BC9700165C54 /* TWOAuthKitConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWOAuthKitConfiguration.m; sourceTree = "<group>"; };
+		B27E1A3911F0C1B500165C54 /* TWToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TWToolkit.xcodeproj; path = TWToolkit/TWToolkit.xcodeproj; sourceTree = "<group>"; };
+		B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YAJLIPhone.xcodeproj; path = "yajl-objc/Project-IPhone/YAJLIPhone.xcodeproj"; sourceTree = "<group>"; };
+		B27E1A8411F0C2D200165C54 /* OAConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAConsumer.h; sourceTree = "<group>"; };
+		B27E1A8511F0C2D200165C54 /* OAConsumer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAConsumer.m; sourceTree = "<group>"; };
+		B27E1A8611F0C2D200165C54 /* OAToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAToken.h; sourceTree = "<group>"; };
+		B27E1A8711F0C2D200165C54 /* OAToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAToken.m; sourceTree = "<group>"; };
 		B2BA993710B352D3001EEA88 /* TWOAuthKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOAuthKit_Prefix.pch; sourceTree = "<group>"; };
 		B2BA994010B3530B001EEA88 /* TWOAuthKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOAuthKit.h; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libTWOAuthKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTWOAuthKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +204,8 @@
 				B26A177610B356DC009AF307 /* CoreGraphics.framework in Frameworks */,
 				B26A177810B356DC009AF307 /* SystemConfiguration.framework in Frameworks */,
 				B26A177A10B356DC009AF307 /* UIKit.framework in Frameworks */,
-				B26A17FA10B356E9009AF307 /* libTWToolkit.a in Frameworks */,
+				B27E1A7011F0C1E400165C54 /* libYAJLIPhoneDevice4_0.a in Frameworks */,
+				B27E1A7111F0C1E700165C54 /* libTWToolkit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +235,6 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */,
 				B26A177510B356DC009AF307 /* CoreGraphics.framework */,
 				B26A177710B356DC009AF307 /* SystemConfiguration.framework */,
 				B26A177910B356DC009AF307 /* UIKit.framework */,
@@ -148,41 +261,165 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		B26A172A10B35502009AF307 /* OAuth Core */ = {
+		B27E17DD11F0B95800165C54 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				B26A172B10B3550A009AF307 /* Base64Transcoder.c */,
-				B26A172C10B3550A009AF307 /* Base64Transcoder.h */,
-				B26A172D10B3550A009AF307 /* OAConsumer.h */,
-				B26A172E10B3550A009AF307 /* OAConsumer.m */,
-				B26A172F10B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.h */,
-				B26A173010B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.m */,
-				B26A173110B3550A009AF307 /* OAPlaintextSignatureProvider.h */,
-				B26A173210B3550A009AF307 /* OAPlaintextSignatureProvider.m */,
-				B26A173310B3550A009AF307 /* OASignatureProviding.h */,
-				B26A173410B3550A009AF307 /* OAToken.h */,
-				B26A173510B3550A009AF307 /* OAToken.m */,
+				B27E1A3911F0C1B500165C54 /* TWToolkit.xcodeproj */,
+				B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */,
+				B27E17DE11F0B95800165C54 /* ASIHTTPRequest */,
+				B27E1A8311F0C2D200165C54 /* OAuthConsumer */,
+				B27E192A11F0BC4700165C54 /* PlainOAuth */,
 			);
-			name = "OAuth Core";
+			path = Vendor;
 			sourceTree = "<group>";
 		};
-		B26A174110B3550C009AF307 /* Categories */ = {
+		B27E17DE11F0B95800165C54 /* ASIHTTPRequest */ = {
 			isa = PBXGroup;
 			children = (
-				B26A174F10B35583009AF307 /* NSURL+OAuthString.h */,
-				B26A175010B35583009AF307 /* NSURL+OAuthString.m */,
-				B26A174210B35518009AF307 /* TWURLRequest+OAuth.h */,
-				B26A174310B35518009AF307 /* TWURLRequest+OAuth.m */,
+				B27E180711F0B95800165C54 /* Classes */,
+				B27E184C11F0B95800165C54 /* External */,
 			);
-			name = Categories;
+			path = ASIHTTPRequest;
 			sourceTree = "<group>";
 		};
-		B26A17F210B356E7009AF307 /* Products */ = {
+		B27E180711F0B95800165C54 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B26A17F910B356E7009AF307 /* libTWToolkit.a */,
+				B27E180811F0B95800165C54 /* ASIAuthenticationDialog.h */,
+				B27E180911F0B95800165C54 /* ASIAuthenticationDialog.m */,
+				B27E180A11F0B95800165C54 /* ASICacheDelegate.h */,
+				B27E180B11F0B95800165C54 /* ASIDownloadCache.h */,
+				B27E180C11F0B95800165C54 /* ASIDownloadCache.m */,
+				B27E180D11F0B95800165C54 /* ASIFormDataRequest.h */,
+				B27E180E11F0B95800165C54 /* ASIFormDataRequest.m */,
+				B27E180F11F0B95800165C54 /* ASIHTTPRequest.h */,
+				B27E181011F0B95800165C54 /* ASIHTTPRequest.m */,
+				B27E181111F0B95800165C54 /* ASIHTTPRequestConfig.h */,
+				B27E181211F0B95800165C54 /* ASIHTTPRequestDelegate.h */,
+				B27E181311F0B95800165C54 /* ASIInputStream.h */,
+				B27E181411F0B95800165C54 /* ASIInputStream.m */,
+				B27E181511F0B95800165C54 /* ASINetworkQueue.h */,
+				B27E181611F0B95800165C54 /* ASINetworkQueue.m */,
+				B27E181711F0B95800165C54 /* ASIProgressDelegate.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B27E184C11F0B95800165C54 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				B27E184E11F0B95800165C54 /* Reachability */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		B27E184E11F0B95800165C54 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				B27E184F11F0B95800165C54 /* Reachability.h */,
+				B27E185011F0B95800165C54 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		B27E191D11F0BB0300165C54 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B27E191E11F0BB0C00165C54 /* TWOAFormRequest.h */,
+				B27E191F11F0BB0C00165C54 /* TWOAFormRequest.m */,
+				B27E192011F0BB0C00165C54 /* TWOARequest.h */,
+				B27E192111F0BB0C00165C54 /* TWOARequest.m */,
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
+		B27E192A11F0BC4700165C54 /* PlainOAuth */ = {
+			isa = PBXGroup;
+			children = (
+				B27E196611F0BC4700165C54 /* OAuth */,
+			);
+			path = PlainOAuth;
+			sourceTree = "<group>";
+		};
+		B27E196611F0BC4700165C54 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				B27E196711F0BC4700165C54 /* Guts */,
+				B27E199011F0BC4700165C54 /* Protocols */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		B27E196711F0BC4700165C54 /* Guts */ = {
+			isa = PBXGroup;
+			children = (
+				B27E197F11F0BC4700165C54 /* Crypto */,
+				B27E198911F0BC4700165C54 /* NSString+URLEncoding.h */,
+				B27E198A11F0BC4700165C54 /* NSString+URLEncoding.m */,
+				B27E198B11F0BC4700165C54 /* OAuth+UserDefaults.h */,
+				B27E198C11F0BC4700165C54 /* OAuth+UserDefaults.m */,
+				B27E198D11F0BC4700165C54 /* OAuth.h */,
+				B27E198E11F0BC4700165C54 /* OAuth.m */,
+			);
+			path = Guts;
+			sourceTree = "<group>";
+		};
+		B27E197F11F0BC4700165C54 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				B27E198011F0BC4700165C54 /* Base64Transcoder.c */,
+				B27E198111F0BC4700165C54 /* Base64Transcoder.h */,
+				B27E198211F0BC4700165C54 /* hmac.c */,
+				B27E198311F0BC4700165C54 /* hmac.h */,
+				B27E198411F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h */,
+				B27E198511F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m */,
+				B27E198611F0BC4700165C54 /* OASignatureProviding.h */,
+				B27E198711F0BC4700165C54 /* sha1.c */,
+				B27E198811F0BC4700165C54 /* sha1.h */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		B27E199011F0BC4700165C54 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B27E199111F0BC4700165C54 /* OAuthTwitterCallbacks.h */,
+				B27E199211F0BC4700165C54 /* TwitterLoginPopupDelegate.h */,
+				B27E199311F0BC4700165C54 /* TwitterLoginUiFeedback.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B27E1A3A11F0C1B500165C54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B27E1A4111F0C1B500165C54 /* libTWToolkit.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B27E1A4311F0C1C000165C54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B27E1A5211F0C1C000165C54 /* libYAJLIPhoneDevice.a */,
+				B27E1A5411F0C1C000165C54 /* libYAJLIPhoneSimulator.a */,
+				B27E1A5611F0C1C000165C54 /* Tests.app */,
+				B27E1A5811F0C1C000165C54 /* libYAJLIPhoneDevice4_0.a */,
+				B27E1A5A11F0C1C000165C54 /* libYAJLIPhoneSimulator4_0.a */,
+				B27E1A5C11F0C1C000165C54 /* Tests.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B27E1A8311F0C2D200165C54 /* OAuthConsumer */ = {
+			isa = PBXGroup;
+			children = (
+				B27E1A8411F0C2D200165C54 /* OAConsumer.h */,
+				B27E1A8511F0C2D200165C54 /* OAConsumer.m */,
+				B27E1A8611F0C2D200165C54 /* OAToken.h */,
+				B27E1A8711F0C2D200165C54 /* OAToken.m */,
+			);
+			path = OAuthConsumer;
 			sourceTree = "<group>";
 		};
 		B2BA993610B352D3001EEA88 /* Other Sources */ = {
@@ -197,9 +434,11 @@
 			isa = PBXGroup;
 			children = (
 				B2BA994010B3530B001EEA88 /* TWOAuthKit.h */,
-				B26A172A10B35502009AF307 /* OAuth Core */,
+				B27E19FB11F0BC9700165C54 /* TWOAuthKitConfiguration.h */,
+				B27E19FC11F0BC9700165C54 /* TWOAuthKitConfiguration.m */,
+				B27E191D11F0BB0300165C54 /* Requests */,
 				B26A171F10B354F5009AF307 /* View Controllers */,
-				B26A174110B3550C009AF307 /* Categories */,
+				B27E17DD11F0B95800165C54 /* Vendor */,
 			);
 			path = TWOAuthKit;
 			sourceTree = "<group>";
@@ -215,14 +454,33 @@
 				B2BA994210B3530B001EEA88 /* TWOAuthKit.h in Headers */,
 				B26A172610B354FF009AF307 /* TWTwitterOAuthInternalViewController.h in Headers */,
 				B26A172810B354FF009AF307 /* TWTwitterOAuthViewController.h in Headers */,
-				B26A173710B3550A009AF307 /* Base64Transcoder.h in Headers */,
-				B26A173810B3550A009AF307 /* OAConsumer.h in Headers */,
-				B26A173A10B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.h in Headers */,
-				B26A173C10B3550A009AF307 /* OAPlaintextSignatureProvider.h in Headers */,
-				B26A173E10B3550A009AF307 /* OASignatureProviding.h in Headers */,
-				B26A173F10B3550A009AF307 /* OAToken.h in Headers */,
-				B26A174410B35518009AF307 /* TWURLRequest+OAuth.h in Headers */,
-				B26A175110B35583009AF307 /* NSURL+OAuthString.h in Headers */,
+				B27E188911F0B95800165C54 /* ASIAuthenticationDialog.h in Headers */,
+				B27E188B11F0B95800165C54 /* ASICacheDelegate.h in Headers */,
+				B27E188C11F0B95800165C54 /* ASIDownloadCache.h in Headers */,
+				B27E188E11F0B95800165C54 /* ASIFormDataRequest.h in Headers */,
+				B27E189011F0B95800165C54 /* ASIHTTPRequest.h in Headers */,
+				B27E189211F0B95800165C54 /* ASIHTTPRequestConfig.h in Headers */,
+				B27E189311F0B95800165C54 /* ASIHTTPRequestDelegate.h in Headers */,
+				B27E189411F0B95800165C54 /* ASIInputStream.h in Headers */,
+				B27E189611F0B95800165C54 /* ASINetworkQueue.h in Headers */,
+				B27E189811F0B95800165C54 /* ASIProgressDelegate.h in Headers */,
+				B27E18C911F0B95800165C54 /* Reachability.h in Headers */,
+				B27E192211F0BB0C00165C54 /* TWOAFormRequest.h in Headers */,
+				B27E192411F0BB0C00165C54 /* TWOARequest.h in Headers */,
+				B27E19D511F0BC4700165C54 /* Base64Transcoder.h in Headers */,
+				B27E19D711F0BC4700165C54 /* hmac.h in Headers */,
+				B27E19D811F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h in Headers */,
+				B27E19DA11F0BC4700165C54 /* OASignatureProviding.h in Headers */,
+				B27E19DC11F0BC4700165C54 /* sha1.h in Headers */,
+				B27E19DD11F0BC4700165C54 /* NSString+URLEncoding.h in Headers */,
+				B27E19DF11F0BC4700165C54 /* OAuth+UserDefaults.h in Headers */,
+				B27E19E111F0BC4700165C54 /* OAuth.h in Headers */,
+				B27E19E411F0BC4700165C54 /* OAuthTwitterCallbacks.h in Headers */,
+				B27E19E511F0BC4700165C54 /* TwitterLoginPopupDelegate.h in Headers */,
+				B27E19E611F0BC4700165C54 /* TwitterLoginUiFeedback.h in Headers */,
+				B27E19FD11F0BC9700165C54 /* TWOAuthKitConfiguration.h in Headers */,
+				B27E1A8811F0C2D200165C54 /* OAConsumer.h in Headers */,
+				B27E1A8A11F0C2D200165C54 /* OAToken.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +498,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				B26A17FC10B356F0009AF307 /* PBXTargetDependency */,
+				B27E1A7311F0C1EF00165C54 /* PBXTargetDependency */,
+				B27E1A7511F0C1EF00165C54 /* PBXTargetDependency */,
 			);
 			name = TWOAuthKit;
 			productName = TWOAuthKit;
@@ -263,8 +522,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B26A17F210B356E7009AF307 /* Products */;
-					ProjectRef = B26A17F110B356E7009AF307 /* TWToolkit.xcodeproj */;
+					ProductGroup = B27E1A3A11F0C1B500165C54 /* Products */;
+					ProjectRef = B27E1A3911F0C1B500165C54 /* TWToolkit.xcodeproj */;
+				},
+				{
+					ProductGroup = B27E1A4311F0C1C000165C54 /* Products */;
+					ProjectRef = B27E1A4211F0C1C000165C54 /* YAJLIPhone.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -275,11 +538,53 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B26A17F910B356E7009AF307 /* libTWToolkit.a */ = {
+		B27E1A4111F0C1B500165C54 /* libTWToolkit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libTWToolkit.a;
-			remoteRef = B26A17F810B356E7009AF307 /* PBXContainerItemProxy */;
+			remoteRef = B27E1A4011F0C1B500165C54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B27E1A5211F0C1C000165C54 /* libYAJLIPhoneDevice.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libYAJLIPhoneDevice.a;
+			remoteRef = B27E1A5111F0C1C000165C54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B27E1A5411F0C1C000165C54 /* libYAJLIPhoneSimulator.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libYAJLIPhoneSimulator.a;
+			remoteRef = B27E1A5311F0C1C000165C54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B27E1A5611F0C1C000165C54 /* Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Tests.app;
+			remoteRef = B27E1A5511F0C1C000165C54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B27E1A5811F0C1C000165C54 /* libYAJLIPhoneDevice4_0.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libYAJLIPhoneDevice4_0.a;
+			remoteRef = B27E1A5711F0C1C000165C54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B27E1A5A11F0C1C000165C54 /* libYAJLIPhoneSimulator4_0.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libYAJLIPhoneSimulator4_0.a;
+			remoteRef = B27E1A5911F0C1C000165C54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B27E1A5C11F0C1C000165C54 /* Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Tests.app;
+			remoteRef = B27E1A5B11F0C1C000165C54 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -291,23 +596,40 @@
 			files = (
 				B26A172710B354FF009AF307 /* TWTwitterOAuthInternalViewController.m in Sources */,
 				B26A172910B354FF009AF307 /* TWTwitterOAuthViewController.m in Sources */,
-				B26A173610B3550A009AF307 /* Base64Transcoder.c in Sources */,
-				B26A173910B3550A009AF307 /* OAConsumer.m in Sources */,
-				B26A173B10B3550A009AF307 /* OAHMAC_SHA1SignatureProvider.m in Sources */,
-				B26A173D10B3550A009AF307 /* OAPlaintextSignatureProvider.m in Sources */,
-				B26A174010B3550A009AF307 /* OAToken.m in Sources */,
-				B26A174510B35518009AF307 /* TWURLRequest+OAuth.m in Sources */,
-				B26A175210B35583009AF307 /* NSURL+OAuthString.m in Sources */,
+				B27E188A11F0B95800165C54 /* ASIAuthenticationDialog.m in Sources */,
+				B27E188D11F0B95800165C54 /* ASIDownloadCache.m in Sources */,
+				B27E188F11F0B95800165C54 /* ASIFormDataRequest.m in Sources */,
+				B27E189111F0B95800165C54 /* ASIHTTPRequest.m in Sources */,
+				B27E189511F0B95800165C54 /* ASIInputStream.m in Sources */,
+				B27E189711F0B95800165C54 /* ASINetworkQueue.m in Sources */,
+				B27E18CA11F0B95800165C54 /* Reachability.m in Sources */,
+				B27E192311F0BB0C00165C54 /* TWOAFormRequest.m in Sources */,
+				B27E192511F0BB0C00165C54 /* TWOARequest.m in Sources */,
+				B27E19D411F0BC4700165C54 /* Base64Transcoder.c in Sources */,
+				B27E19D611F0BC4700165C54 /* hmac.c in Sources */,
+				B27E19D911F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m in Sources */,
+				B27E19DB11F0BC4700165C54 /* sha1.c in Sources */,
+				B27E19DE11F0BC4700165C54 /* NSString+URLEncoding.m in Sources */,
+				B27E19E011F0BC4700165C54 /* OAuth+UserDefaults.m in Sources */,
+				B27E19E211F0BC4700165C54 /* OAuth.m in Sources */,
+				B27E19FE11F0BC9700165C54 /* TWOAuthKitConfiguration.m in Sources */,
+				B27E1A8911F0C2D200165C54 /* OAConsumer.m in Sources */,
+				B27E1A8B11F0C2D200165C54 /* OAToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B26A17FC10B356F0009AF307 /* PBXTargetDependency */ = {
+		B27E1A7311F0C1EF00165C54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "YAJLIPhone (Device-4.0)";
+			targetProxy = B27E1A7211F0C1EF00165C54 /* PBXContainerItemProxy */;
+		};
+		B27E1A7511F0C1EF00165C54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TWToolkit;
-			targetProxy = B26A17FB10B356F0009AF307 /* PBXContainerItemProxy */;
+			targetProxy = B27E1A7411F0C1EF00165C54 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -325,13 +647,17 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/TWOAuthKit_Prefix.pch";
-				HEADER_SEARCH_PATHS = Frameworks/TWToolkit;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/TWOAuthKit/Vendor/yajl-objc\"/**",
+					"\"$(SRCROOT)/TWOAuthKit/Vendor/TWToolkit\"",
+				);
 				INSTALL_PATH = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = TWOAuthKit;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Debug;
 		};
@@ -344,8 +670,13 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TWOAuthKit_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/TWOAuthKit/Vendor/yajl-objc\"/**",
+					"\"$(SRCROOT)/TWOAuthKit/Vendor/TWToolkit\"",
+				);
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = TWOAuthKit;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Release;
 		};

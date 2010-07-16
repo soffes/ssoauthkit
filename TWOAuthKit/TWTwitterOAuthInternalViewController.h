@@ -6,18 +6,19 @@
 //  Copyright 2009 Tasteful Works, Inc. All rights reserved.
 //
 
-#import <TWToolkit/TWURLConnection.h>
+#import "ASIHTTPRequestDelegate.h"
 
+@class TWOAFormRequest;
 @class TWLoadingView;
 @class OAConsumer;
 @class OAToken;
 
-@interface TWTwitterOAuthInternalViewController : UIViewController <UIWebViewDelegate, TWURLConnectionDelegate> {
+@interface TWTwitterOAuthInternalViewController : UIViewController <UIWebViewDelegate, ASIHTTPRequestDelegate> {
 
 	TWLoadingView *loadingView;
 	UIWebView *authorizationView;
 	
-	TWURLConnection *connection;
+	TWOAFormRequest *request;
 	OAConsumer *consumer;
 	OAToken *requestToken;
 	OAToken *accessToken;

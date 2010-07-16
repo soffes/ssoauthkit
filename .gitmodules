@@ -1,3 +1,18 @@
 [submodule "Frameworks/TWToolkit"]
 	path = Frameworks/TWToolkit
 	url = git@github.com:tastefulworks/twtoolkit.git
+[submodule "Classes/Vendor/ASIHTTPRequest"]
+	path = Classes/Vendor/ASIHTTPRequest
+	url = http://github.com/pokeb/asi-http-request.git
+[submodule "TWOAuthKit/Vendor/ASIHTTPRequest"]
+	path = TWOAuthKit/Vendor/ASIHTTPRequest
+	url = http://github.com/pokeb/asi-http-request.git
+[submodule "TWOAuthKit/Vendor/PlainOAuth"]
+	path = TWOAuthKit/Vendor/PlainOAuth
+	url = http://github.com/jaanus/PlainOAuth.git
+[submodule "TWOAuthKit/Vendor/yajl-objc"]
+	path = TWOAuthKit/Vendor/yajl-objc
+	url = http://github.com/gabriel/yajl-objc.git
+[submodule "TWOAuthKit/Vendor/TWToolkit"]
+	path = TWOAuthKit/Vendor/TWToolkit
+	url = http://github.com/tastefulworks/twtoolkit.git
