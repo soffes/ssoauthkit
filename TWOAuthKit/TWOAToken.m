@@ -12,15 +12,17 @@
 
 @synthesize key;
 @synthesize secret;
-@synthesize authorized;
 
-#pragma mark init
+#pragma mark NSObject
 
-- (id)init {
-	self = [self initWithKey:nil secret:nil];
-    return self;
+- (void)dealloc {
+	self.key = nil;
+	self.secret = nil;
+	[super dealloc];
 }
 
+
+#pragma mark Initializers
 
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret {
 	if (aKey == nil || aSecret == nil) {
@@ -30,7 +32,6 @@
 	if (self = [super init]) {
 		self.key = aKey;
 		self.secret = aSecret;
-		self.authorized = NO;
 	}
 	return self;
 }
@@ -64,14 +65,7 @@
 	return self;
 }
 
-
-- (void)dealloc {
-	[key release];
-	[secret release];
-	[super dealloc];
-}
-
-#pragma mark -
+#pragma mark Utilities
 
 - (void)storeInUserDefaultsWithServiceProviderName:(NSString *)provider prefix:(NSString *)prefix {
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -83,6 +77,28 @@
 
 - (NSString *)URLEncodedValue {
 	return [NSString stringWithFormat:@"oauth_token=%@&oauth_token_secret=%@", self.key, self.secret];
+}
+
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)decoder {
+	if (self = [super init]) {
+		self.key = [decoder decodeObjectForKey:@"key"];
+		self.secret = [decoder decodeObjectForKey:@"secret"];
+	}
+	return self;
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+	[encoder encodeObject:self.key forKey:@"key"];
+	[encoder encodeObject:self.secret forKey:@"secret"];
+}
+
+#pragma mark NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+	return [[TWOAToken alloc] initWithKey:self.key secret:self.secret];
 }
 
 @end

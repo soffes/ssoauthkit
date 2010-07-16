@@ -227,7 +227,6 @@
 		
 		// Get token
 		TWOAToken *accessToken = [[TWOAToken alloc] initWithHTTPResponseBody:[aRequest responseString]];
-		accessToken.authorized = YES;
 		
 		// Check for token error
 		if (accessToken == nil) {

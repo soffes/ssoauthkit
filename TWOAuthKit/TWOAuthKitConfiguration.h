@@ -6,9 +6,13 @@
 //  Copyright 2010 Tasteful Works, Inc. All rights reserved.
 //
 
+@class OAConsumer;
+
 @interface TWOAuthKitConfiguration : NSObject {
 
 }
+
++ (OAConsumer *)consumer;
 
 + (void)setConsumerKey:(NSString *)key secret:(NSString *)secret;
 

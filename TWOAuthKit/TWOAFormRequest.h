@@ -15,6 +15,6 @@
 	TWOAToken *token;
 }
 
-@property (retain) TWOAToken *token;
+@property (copy) TWOAToken *token;
 
 @end

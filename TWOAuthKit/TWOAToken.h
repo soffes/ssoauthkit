@@ -6,20 +6,21 @@
 //  Copyright 2010 Tasteful Works, Inc. All rights reserved.
 //
 
-@interface TWOAToken : NSObject {
+@interface TWOAToken : NSObject <NSCoding, NSCopying> {
 	
 	NSString *key;
 	NSString *secret;
-	BOOL authorized;
 }
 
-@property (nonatomic, retain) NSString *key;
-@property (nonatomic, retain) NSString *secret;
-@property (nonatomic, assign) BOOL authorized;
+@property (nonatomic, copy) NSString *key;
+@property (nonatomic, copy) NSString *secret;
 
+// Initializers
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret;
 - (id)initWithUserDefaultsUsingServiceProviderName:(NSString *)provider prefix:(NSString *)prefix;
 - (id)initWithHTTPResponseBody:(NSString *)body;
+
+// Utilities
 - (void)storeInUserDefaultsWithServiceProviderName:(NSString *)provider prefix:(NSString *)prefix;
 - (NSString *)URLEncodedValue;
 

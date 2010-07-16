@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B21224A511F104750046BEA2 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = B212249A11F104750046BEA2 /* Base64Transcoder.c */; };
+		B21224A611F104750046BEA2 /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B212249B11F104750046BEA2 /* Base64Transcoder.h */; };
+		B21224A911F104750046BEA2 /* OAConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = B212249E11F104750046BEA2 /* OAConsumer.h */; };
+		B21224AA11F104750046BEA2 /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = B212249F11F104750046BEA2 /* OAConsumer.m */; };
+		B21224AB11F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B21224A011F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.h */; };
+		B21224AC11F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B21224A111F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.m */; };
+		B21224AD11F104750046BEA2 /* OAPlaintextSignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B21224A211F104750046BEA2 /* OAPlaintextSignatureProvider.h */; };
+		B21224AE11F104750046BEA2 /* OAPlaintextSignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B21224A311F104750046BEA2 /* OAPlaintextSignatureProvider.m */; };
+		B21224AF11F104750046BEA2 /* OASignatureProviding.h in Headers */ = {isa = PBXBuildFile; fileRef = B21224A411F104750046BEA2 /* OASignatureProviding.h */; };
+		B21224BB11F104A70046BEA2 /* NSURL+OAuthString.h in Headers */ = {isa = PBXBuildFile; fileRef = B21224B911F104A70046BEA2 /* NSURL+OAuthString.h */; };
+		B21224BC11F104A70046BEA2 /* NSURL+OAuthString.m in Sources */ = {isa = PBXBuildFile; fileRef = B21224BA11F104A70046BEA2 /* NSURL+OAuthString.m */; };
 		B26A172610B354FF009AF307 /* TWTwitterOAuthInternalViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A172210B354FF009AF307 /* TWTwitterOAuthInternalViewController.h */; };
 		B26A172710B354FF009AF307 /* TWTwitterOAuthInternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B26A172310B354FF009AF307 /* TWTwitterOAuthInternalViewController.m */; };
 		B26A172810B354FF009AF307 /* TWTwitterOAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B26A172410B354FF009AF307 /* TWTwitterOAuthViewController.h */; };
@@ -33,24 +44,6 @@
 		B27E192311F0BB0C00165C54 /* TWOAFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E191F11F0BB0C00165C54 /* TWOAFormRequest.m */; };
 		B27E192411F0BB0C00165C54 /* TWOARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E192011F0BB0C00165C54 /* TWOARequest.h */; };
 		B27E192511F0BB0C00165C54 /* TWOARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E192111F0BB0C00165C54 /* TWOARequest.m */; };
-		B27E19D411F0BC4700165C54 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = B27E198011F0BC4700165C54 /* Base64Transcoder.c */; };
-		B27E19D511F0BC4700165C54 /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198111F0BC4700165C54 /* Base64Transcoder.h */; };
-		B27E19D611F0BC4700165C54 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = B27E198211F0BC4700165C54 /* hmac.c */; };
-		B27E19D711F0BC4700165C54 /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198311F0BC4700165C54 /* hmac.h */; };
-		B27E19D811F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198411F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h */; };
-		B27E19D911F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E198511F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m */; };
-		B27E19DA11F0BC4700165C54 /* OASignatureProviding.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198611F0BC4700165C54 /* OASignatureProviding.h */; };
-		B27E19DB11F0BC4700165C54 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = B27E198711F0BC4700165C54 /* sha1.c */; };
-		B27E19DC11F0BC4700165C54 /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198811F0BC4700165C54 /* sha1.h */; };
-		B27E19DD11F0BC4700165C54 /* NSString+URLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198911F0BC4700165C54 /* NSString+URLEncoding.h */; };
-		B27E19DE11F0BC4700165C54 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E198A11F0BC4700165C54 /* NSString+URLEncoding.m */; };
-		B27E19DF11F0BC4700165C54 /* OAuth+UserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198B11F0BC4700165C54 /* OAuth+UserDefaults.h */; };
-		B27E19E011F0BC4700165C54 /* OAuth+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E198C11F0BC4700165C54 /* OAuth+UserDefaults.m */; };
-		B27E19E111F0BC4700165C54 /* OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E198D11F0BC4700165C54 /* OAuth.h */; };
-		B27E19E211F0BC4700165C54 /* OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E198E11F0BC4700165C54 /* OAuth.m */; };
-		B27E19E411F0BC4700165C54 /* OAuthTwitterCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E199111F0BC4700165C54 /* OAuthTwitterCallbacks.h */; };
-		B27E19E511F0BC4700165C54 /* TwitterLoginPopupDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E199211F0BC4700165C54 /* TwitterLoginPopupDelegate.h */; };
-		B27E19E611F0BC4700165C54 /* TwitterLoginUiFeedback.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E199311F0BC4700165C54 /* TwitterLoginUiFeedback.h */; };
 		B27E19FD11F0BC9700165C54 /* TWOAuthKitConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B27E19FB11F0BC9700165C54 /* TWOAuthKitConfiguration.h */; };
 		B27E19FE11F0BC9700165C54 /* TWOAuthKitConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B27E19FC11F0BC9700165C54 /* TWOAuthKitConfiguration.m */; };
 		B27E1A7111F0C1E700165C54 /* libTWToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B27E1A4111F0C1B500165C54 /* libTWToolkit.a */; };
@@ -87,6 +80,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B212249A11F104750046BEA2 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		B212249B11F104750046BEA2 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		B212249E11F104750046BEA2 /* OAConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAConsumer.h; sourceTree = "<group>"; };
+		B212249F11F104750046BEA2 /* OAConsumer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAConsumer.m; sourceTree = "<group>"; };
+		B21224A011F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAHMAC_SHA1SignatureProvider.h; sourceTree = "<group>"; };
+		B21224A111F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAHMAC_SHA1SignatureProvider.m; sourceTree = "<group>"; };
+		B21224A211F104750046BEA2 /* OAPlaintextSignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPlaintextSignatureProvider.h; sourceTree = "<group>"; };
+		B21224A311F104750046BEA2 /* OAPlaintextSignatureProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPlaintextSignatureProvider.m; sourceTree = "<group>"; };
+		B21224A411F104750046BEA2 /* OASignatureProviding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OASignatureProviding.h; sourceTree = "<group>"; };
+		B21224B911F104A70046BEA2 /* NSURL+OAuthString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+OAuthString.h"; sourceTree = "<group>"; };
+		B21224BA11F104A70046BEA2 /* NSURL+OAuthString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+OAuthString.m"; sourceTree = "<group>"; };
 		B26A172210B354FF009AF307 /* TWTwitterOAuthInternalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTwitterOAuthInternalViewController.h; sourceTree = "<group>"; };
 		B26A172310B354FF009AF307 /* TWTwitterOAuthInternalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTwitterOAuthInternalViewController.m; sourceTree = "<group>"; };
 		B26A172410B354FF009AF307 /* TWTwitterOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTwitterOAuthViewController.h; sourceTree = "<group>"; };
@@ -113,24 +117,6 @@
 		B27E191F11F0BB0C00165C54 /* TWOAFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWOAFormRequest.m; sourceTree = "<group>"; };
 		B27E192011F0BB0C00165C54 /* TWOARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOARequest.h; sourceTree = "<group>"; };
 		B27E192111F0BB0C00165C54 /* TWOARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWOARequest.m; sourceTree = "<group>"; };
-		B27E198011F0BC4700165C54 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
-		B27E198111F0BC4700165C54 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
-		B27E198211F0BC4700165C54 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
-		B27E198311F0BC4700165C54 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
-		B27E198411F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAHMAC_SHA1SignatureProvider.h; sourceTree = "<group>"; };
-		B27E198511F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAHMAC_SHA1SignatureProvider.m; sourceTree = "<group>"; };
-		B27E198611F0BC4700165C54 /* OASignatureProviding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OASignatureProviding.h; sourceTree = "<group>"; };
-		B27E198711F0BC4700165C54 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
-		B27E198811F0BC4700165C54 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
-		B27E198911F0BC4700165C54 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
-		B27E198A11F0BC4700165C54 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
-		B27E198B11F0BC4700165C54 /* OAuth+UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAuth+UserDefaults.h"; sourceTree = "<group>"; };
-		B27E198C11F0BC4700165C54 /* OAuth+UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAuth+UserDefaults.m"; sourceTree = "<group>"; };
-		B27E198D11F0BC4700165C54 /* OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth.h; sourceTree = "<group>"; };
-		B27E198E11F0BC4700165C54 /* OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth.m; sourceTree = "<group>"; };
-		B27E199111F0BC4700165C54 /* OAuthTwitterCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthTwitterCallbacks.h; sourceTree = "<group>"; };
-		B27E199211F0BC4700165C54 /* TwitterLoginPopupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterLoginPopupDelegate.h; sourceTree = "<group>"; };
-		B27E199311F0BC4700165C54 /* TwitterLoginUiFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterLoginUiFeedback.h; sourceTree = "<group>"; };
 		B27E19FB11F0BC9700165C54 /* TWOAuthKitConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWOAuthKitConfiguration.h; sourceTree = "<group>"; };
 		B27E19FC11F0BC9700165C54 /* TWOAuthKitConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWOAuthKitConfiguration.m; sourceTree = "<group>"; };
 		B27E1A3911F0C1B500165C54 /* TWToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TWToolkit.xcodeproj; path = TWToolkit/TWToolkit.xcodeproj; sourceTree = "<group>"; };
@@ -216,6 +202,22 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		B212249911F104750046BEA2 /* OAuthConsumer */ = {
+			isa = PBXGroup;
+			children = (
+				B212249A11F104750046BEA2 /* Base64Transcoder.c */,
+				B212249B11F104750046BEA2 /* Base64Transcoder.h */,
+				B212249E11F104750046BEA2 /* OAConsumer.h */,
+				B212249F11F104750046BEA2 /* OAConsumer.m */,
+				B21224A011F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.h */,
+				B21224A111F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.m */,
+				B21224A211F104750046BEA2 /* OAPlaintextSignatureProvider.h */,
+				B21224A311F104750046BEA2 /* OAPlaintextSignatureProvider.m */,
+				B21224A411F104750046BEA2 /* OASignatureProviding.h */,
+			);
+			path = OAuthConsumer;
+			sourceTree = "<group>";
+		};
 		B26A171F10B354F5009AF307 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,9 +232,9 @@
 		B27E17DD11F0B95800165C54 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				B212249911F104750046BEA2 /* OAuthConsumer */,
 				B27E1A3911F0C1B500165C54 /* TWToolkit.xcodeproj */,
 				B27E17DE11F0B95800165C54 /* ASIHTTPRequest */,
-				B27E192A11F0BC4700165C54 /* PlainOAuth */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -286,74 +288,6 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		B27E191D11F0BB0300165C54 /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-				B27E192011F0BB0C00165C54 /* TWOARequest.h */,
-				B27E192111F0BB0C00165C54 /* TWOARequest.m */,
-				B27E191E11F0BB0C00165C54 /* TWOAFormRequest.h */,
-				B27E191F11F0BB0C00165C54 /* TWOAFormRequest.m */,
-			);
-			name = Requests;
-			sourceTree = "<group>";
-		};
-		B27E192A11F0BC4700165C54 /* PlainOAuth */ = {
-			isa = PBXGroup;
-			children = (
-				B27E196611F0BC4700165C54 /* OAuth */,
-			);
-			path = PlainOAuth;
-			sourceTree = "<group>";
-		};
-		B27E196611F0BC4700165C54 /* OAuth */ = {
-			isa = PBXGroup;
-			children = (
-				B27E196711F0BC4700165C54 /* Guts */,
-				B27E199011F0BC4700165C54 /* Protocols */,
-			);
-			path = OAuth;
-			sourceTree = "<group>";
-		};
-		B27E196711F0BC4700165C54 /* Guts */ = {
-			isa = PBXGroup;
-			children = (
-				B27E197F11F0BC4700165C54 /* Crypto */,
-				B27E198911F0BC4700165C54 /* NSString+URLEncoding.h */,
-				B27E198A11F0BC4700165C54 /* NSString+URLEncoding.m */,
-				B27E198B11F0BC4700165C54 /* OAuth+UserDefaults.h */,
-				B27E198C11F0BC4700165C54 /* OAuth+UserDefaults.m */,
-				B27E198D11F0BC4700165C54 /* OAuth.h */,
-				B27E198E11F0BC4700165C54 /* OAuth.m */,
-			);
-			path = Guts;
-			sourceTree = "<group>";
-		};
-		B27E197F11F0BC4700165C54 /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				B27E198011F0BC4700165C54 /* Base64Transcoder.c */,
-				B27E198111F0BC4700165C54 /* Base64Transcoder.h */,
-				B27E198211F0BC4700165C54 /* hmac.c */,
-				B27E198311F0BC4700165C54 /* hmac.h */,
-				B27E198411F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h */,
-				B27E198511F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m */,
-				B27E198611F0BC4700165C54 /* OASignatureProviding.h */,
-				B27E198711F0BC4700165C54 /* sha1.c */,
-				B27E198811F0BC4700165C54 /* sha1.h */,
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
-		B27E199011F0BC4700165C54 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				B27E199111F0BC4700165C54 /* OAuthTwitterCallbacks.h */,
-				B27E199211F0BC4700165C54 /* TwitterLoginPopupDelegate.h */,
-				B27E199311F0BC4700165C54 /* TwitterLoginUiFeedback.h */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		B27E1A3A11F0C1B500165C54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +301,12 @@
 			children = (
 				B27E1AF011F0D48E00165C54 /* TWOAToken.h */,
 				B27E1AF111F0D48E00165C54 /* TWOAToken.m */,
+				B27E192011F0BB0C00165C54 /* TWOARequest.h */,
+				B27E192111F0BB0C00165C54 /* TWOARequest.m */,
+				B27E191E11F0BB0C00165C54 /* TWOAFormRequest.h */,
+				B27E191F11F0BB0C00165C54 /* TWOAFormRequest.m */,
+				B21224B911F104A70046BEA2 /* NSURL+OAuthString.h */,
+				B21224BA11F104A70046BEA2 /* NSURL+OAuthString.m */,
 			);
 			name = OAuth;
 			sourceTree = "<group>";
@@ -394,7 +334,6 @@
 				B27E19FB11F0BC9700165C54 /* TWOAuthKitConfiguration.h */,
 				B27E19FC11F0BC9700165C54 /* TWOAuthKitConfiguration.m */,
 				B27E1AED11F0D48500165C54 /* OAuth */,
-				B27E191D11F0BB0300165C54 /* Requests */,
 				B26A171F10B354F5009AF307 /* View Controllers */,
 				B27E17DD11F0B95800165C54 /* Vendor */,
 			);
@@ -425,19 +364,14 @@
 				B27E18C911F0B95800165C54 /* Reachability.h in Headers */,
 				B27E192211F0BB0C00165C54 /* TWOAFormRequest.h in Headers */,
 				B27E192411F0BB0C00165C54 /* TWOARequest.h in Headers */,
-				B27E19D511F0BC4700165C54 /* Base64Transcoder.h in Headers */,
-				B27E19D711F0BC4700165C54 /* hmac.h in Headers */,
-				B27E19D811F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.h in Headers */,
-				B27E19DA11F0BC4700165C54 /* OASignatureProviding.h in Headers */,
-				B27E19DC11F0BC4700165C54 /* sha1.h in Headers */,
-				B27E19DD11F0BC4700165C54 /* NSString+URLEncoding.h in Headers */,
-				B27E19DF11F0BC4700165C54 /* OAuth+UserDefaults.h in Headers */,
-				B27E19E111F0BC4700165C54 /* OAuth.h in Headers */,
-				B27E19E411F0BC4700165C54 /* OAuthTwitterCallbacks.h in Headers */,
-				B27E19E511F0BC4700165C54 /* TwitterLoginPopupDelegate.h in Headers */,
-				B27E19E611F0BC4700165C54 /* TwitterLoginUiFeedback.h in Headers */,
 				B27E19FD11F0BC9700165C54 /* TWOAuthKitConfiguration.h in Headers */,
 				B27E1AF411F0D48E00165C54 /* TWOAToken.h in Headers */,
+				B21224A611F104750046BEA2 /* Base64Transcoder.h in Headers */,
+				B21224A911F104750046BEA2 /* OAConsumer.h in Headers */,
+				B21224AB11F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.h in Headers */,
+				B21224AD11F104750046BEA2 /* OAPlaintextSignatureProvider.h in Headers */,
+				B21224AF11F104750046BEA2 /* OASignatureProviding.h in Headers */,
+				B21224BB11F104A70046BEA2 /* NSURL+OAuthString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,15 +449,13 @@
 				B27E18CA11F0B95800165C54 /* Reachability.m in Sources */,
 				B27E192311F0BB0C00165C54 /* TWOAFormRequest.m in Sources */,
 				B27E192511F0BB0C00165C54 /* TWOARequest.m in Sources */,
-				B27E19D411F0BC4700165C54 /* Base64Transcoder.c in Sources */,
-				B27E19D611F0BC4700165C54 /* hmac.c in Sources */,
-				B27E19D911F0BC4700165C54 /* OAHMAC_SHA1SignatureProvider.m in Sources */,
-				B27E19DB11F0BC4700165C54 /* sha1.c in Sources */,
-				B27E19DE11F0BC4700165C54 /* NSString+URLEncoding.m in Sources */,
-				B27E19E011F0BC4700165C54 /* OAuth+UserDefaults.m in Sources */,
-				B27E19E211F0BC4700165C54 /* OAuth.m in Sources */,
 				B27E19FE11F0BC9700165C54 /* TWOAuthKitConfiguration.m in Sources */,
 				B27E1AF511F0D48E00165C54 /* TWOAToken.m in Sources */,
+				B21224A511F104750046BEA2 /* Base64Transcoder.c in Sources */,
+				B21224AA11F104750046BEA2 /* OAConsumer.m in Sources */,
+				B21224AC11F104750046BEA2 /* OAHMAC_SHA1SignatureProvider.m in Sources */,
+				B21224AE11F104750046BEA2 /* OAPlaintextSignatureProvider.m in Sources */,
+				B21224BC11F104A70046BEA2 /* NSURL+OAuthString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
