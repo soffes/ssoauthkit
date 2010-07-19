@@ -68,49 +68,49 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = B24F741A11F4B4340058C32F /* YAJLIPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libYAJLIPhoneDevice.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = "YAJLIPhone (Device-3.0)";
 		};
 		B24F742B11F4B4340058C32F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B24F741A11F4B4340058C32F /* YAJLIPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 00C405EB0FE779BF003CE908 /* libYAJLIPhoneSimulator.a */;
+			remoteGlobalIDString = 00C405EB0FE779BF003CE908;
 			remoteInfo = "YAJLIPhone (Simulator-3.0)";
 		};
 		B24F742D11F4B4340058C32F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B24F741A11F4B4340058C32F /* YAJLIPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 00C4054D0FE77760003CE908 /* Tests.app */;
+			remoteGlobalIDString = 00C4054D0FE77760003CE908;
 			remoteInfo = Tests;
 		};
 		B24F742F11F4B4340058C32F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B24F741A11F4B4340058C32F /* YAJLIPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 0065977C11BEEF4000E89ABD /* libYAJLIPhoneDevice4_0.a */;
+			remoteGlobalIDString = 0065977C11BEEF4000E89ABD;
 			remoteInfo = "YAJLIPhone (Device-4.0)";
 		};
 		B24F743111F4B4340058C32F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B24F741A11F4B4340058C32F /* YAJLIPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 006597AC11BEEF4800E89ABD /* libYAJLIPhoneSimulator4_0.a */;
+			remoteGlobalIDString = 006597AC11BEEF4800E89ABD;
 			remoteInfo = "YAJLIPhone (Simulator-4.0)";
 		};
 		B24F743311F4B4340058C32F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B24F741A11F4B4340058C32F /* YAJLIPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 006597EA11BEEF5400E89ABD /* Tests.app */;
+			remoteGlobalIDString = 006597EA11BEEF5400E89ABD;
 			remoteInfo = "Tests (4.0)";
 		};
 		B24F743611F4B43F0058C32F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B24F741A11F4B4340058C32F /* YAJLIPhone.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 0065975811BEEF4000E89ABD /* YAJLIPhone (Device-4.0) */;
+			remoteGlobalIDString = 0065975811BEEF4000E89ABD;
 			remoteInfo = "YAJLIPhone (Device-4.0)";
 		};
 		B27E1A4011F0C1B500165C54 /* PBXContainerItemProxy */ = {
@@ -444,7 +444,7 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* TWOAuthKit */ = {
+		D2AAC07D0554694100DB518D /* YAJLIPhone (Device-3.0) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "TWOAuthKit" */;
 			buildPhases = (
@@ -489,7 +489,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* TWOAuthKit */,
+				D2AAC07D0554694100DB518D /* YAJLIPhone (Device-3.0) */,
 			);
 		};
 /* End PBXProject section */
