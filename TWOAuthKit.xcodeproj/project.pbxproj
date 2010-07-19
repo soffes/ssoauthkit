@@ -444,7 +444,7 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* YAJLIPhone (Device-3.0) */ = {
+		D2AAC07D0554694100DB518D /* TWOAuthKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "TWOAuthKit" */;
 			buildPhases = (
@@ -489,7 +489,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* YAJLIPhone (Device-3.0) */,
+				D2AAC07D0554694100DB518D /* TWOAuthKit */,
 			);
 		};
 /* End PBXProject section */

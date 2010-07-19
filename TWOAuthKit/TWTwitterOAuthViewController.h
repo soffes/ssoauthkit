@@ -24,8 +24,8 @@
 
 @protocol TWTwitterOAuthViewControllerDelegate <NSObject>
 
-- (void)twitterOAuthViewControllerDidCancel:(TWTwitterOAuthViewController *)viewController;
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)viewController didFailWithError:(NSError *)error;
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)viewController didAuthorizeWithAccessToken:(TWOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary;
+- (void)twitterOAuthViewControllerDidCancel:(TWTwitterOAuthViewController *)twitterOAuthViewController;
+- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)twitterOAuthViewController didFailWithError:(NSError *)error;
+- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)twitterOAuthViewController didAuthorizeWithAccessToken:(TWOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary;
 
 @end

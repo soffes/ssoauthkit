@@ -47,13 +47,13 @@
 
 #pragma mark TWTwitterOAuthViewControllerDelegate
 
-- (void)twitterOAuthViewControllerDidCancel:(TWTwitterOAuthViewController *)viewController {
+- (void)twitterOAuthViewControllerDidCancel:(TWTwitterOAuthViewController *)twitterOAuthViewController {
 	NSLog(@"Canceled");
 	[self dismissModalViewControllerAnimated:YES];
 }
 
 
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)viewController didFailWithError:(NSError *)error {
+- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)twitterOAuthViewController didFailWithError:(NSError *)error {
 	NSLog(@"Failed with error: %@", error);
 	[self dismissModalViewControllerAnimated:YES];
 	
@@ -63,7 +63,7 @@
 }
 
 
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)viewController didAuthorizeWithAccessToken:(TWOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary {
+- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)twitterOAuthViewController didAuthorizeWithAccessToken:(TWOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary {
 	NSLog(@"Finished! %@", userDictionary);
 	[self dismissModalViewControllerAnimated:YES];
 	
