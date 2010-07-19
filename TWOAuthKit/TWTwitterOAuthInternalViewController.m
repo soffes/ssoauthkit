@@ -11,6 +11,7 @@
 #import "TWOAToken.h"
 #import "TWOAFormRequest.h"
 #import "ASIHTTPRequest.h"
+#import "NSObject+yajl.h"
 #import <TWToolkit/TWLoadingView.h>
 #import <TWToolkit/TWCategories.h>
 
@@ -27,9 +28,6 @@
 
 @implementation TWTwitterOAuthInternalViewController
 
-@synthesize consumer;
-@synthesize requestToken;
-
 #pragma mark NSObject
 
 - (void)dealloc {
@@ -39,8 +37,8 @@
 	
 	[loadingView release];
 	[authorizationView release];
-	self.consumer = nil;
-	self.requestToken = nil;
+	[requestToken release];
+	[accessToken release];
 	[super dealloc];
 }
 
@@ -158,6 +156,26 @@
 	[url release];
 }
 
+
+// *** Step 4
+- (void)_requestUser {
+	loadingView.text = @"Saving...";
+	
+	request.delegate = nil;
+	[request cancel];
+	[request release];
+	
+	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1/account/verify_credentials.json"];
+	
+	request = [[TWOAFormRequest alloc] initWithURL:url];
+	request.requestMethod = @"GET";
+	request.token = accessToken;
+	request.delegate = self;
+	[request startAsynchronous];
+	
+	[url release];
+}
+
 #pragma mark -
 #pragma mark TWURLConnectionDelegate
 #pragma mark -
@@ -178,6 +196,15 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)aRequest {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+	
+	if ([aRequest responseStatusCode] == 500) {
+		if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
+			NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:@"Something went technically wrong on Twitter's end. Maybe try again later.", NSLocalizedDescriptionKey, nil];
+			NSError *error = [NSError errorWithDomain:@"com.tasetfulworks.twtwitteroauthviewcontroller" code:-2 userInfo:userInfo];
+			[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didFailWithError:error];
+		}
+		return;
+	}
 	
 	NSString *path = [[aRequest url] path];
 	
@@ -211,7 +238,7 @@
 		}
 		
 		// Store token
-		self.requestToken = aToken;
+		requestToken = [aToken retain];
 		[aToken release];
 		
 		// Start authorizing
@@ -225,10 +252,10 @@
 	else if ([path isEqualToString:@"/oauth/access_token"]) {
 		
 		// Get token
-		TWOAToken *accessToken = [[TWOAToken alloc] initWithHTTPResponseBody:[aRequest responseString]];
+		TWOAToken *aToken = [[TWOAToken alloc] initWithHTTPResponseBody:[aRequest responseString]];
 		
 		// Check for token error
-		if (accessToken == nil) {
+		if (aToken == nil) {
 			if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
 				NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:@"The access token could not be generated", NSLocalizedDescriptionKey, nil];
 				NSError *error = [NSError errorWithDomain:@"com.tasetfulworks.twtwitteroauthviewcontroller" code:-1 userInfo:userInfo];
@@ -237,14 +264,30 @@
 			return;
 		}
 		
-		[accessToken release];
-				
-		// Notify delegate
-		if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didAuthorizeWithAccessToken:userDictionary:)]) {
-			//[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didAuthorizeWithAccessToken:accessToken userDictionary:dictionary];
+		accessToken = [aToken retain];
+		[aToken release];
+		
+		// Get user dictionary
+		[self _requestUser];
+		return;
+	}
+	
+	// *** Step 4 - Get user
+	else if ([path isEqualToString:@"/1/account/verify_credentials.json"]) {
+		NSError *error = nil;
+		NSDictionary *dictionary = [[aRequest responseString] yajl_JSON:&error];
+		if (error) {
+			// TODO: Pass access token along since we successfully got it already
+			if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
+				[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didFailWithError:error];
+			}
+			return;
 		}
 		
-		return;
+		// Notify delegate
+		if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didAuthorizeWithAccessToken:userDictionary:)]) {
+			[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didAuthorizeWithAccessToken:accessToken userDictionary:dictionary];
+		}
 	}
 }
 
@@ -280,46 +323,6 @@
 		[self _verifyAccessTokenWithPin:pin];
 		return;
 	}
-	
-//	// Pretty up form and get height
-//	[authorizationView stringByEvaluatingJavaScriptFromString:@"\
-//	 $('html, body').css({'width': '320px', 'overflow-x': 'hidden'});\
-//	 $('body *').css('-webkit-user-select', 'none');\
-//	 $('#header').css('width', '320px');\
-//	 $('#twitainer').css({'width': '300px', 'padding': '10px 0', 'overflow': 'hidden'});\
-//	 $('#content').css('width', '300px');\
-//	 $('.signin-content').css({'width': '280px', 'padding': '10px', '-webkit-border-radius': '5px'});\
-//	 $('h2').css({'font-size': '17px', 'font-family': '\\'Lucida Grande\\',sans-serif', 'margin': '0 0 12px'});\
-//	 $('.signin-content h2').css('min-height', '73px');\
-//	 $('.app-icon').css('margin', '0 12px 12px 0');\
-//	 $('h4').css({'font-size': '0.65em', 'font-family': '\\'Lucida Grande\\',sans-serif', 'margin': 0});\
-//	 \
-//	 $('#signin_form').css('margin-top', '6px');\
-//	 $('#signin_form th').css('display', 'none');\
-//	 $('input[type=text], input[type=password]').css({'width': '260px', 'font-size': '15px', 'padding': '4px', '-webkit-user-select': 'text'});\
-//	 $('input[type=text]').attr({'placeholder': 'Username or Email', 'autocorrect': 'off'});\
-//	 $('input[type=password]').attr('placeholder', 'Password');\
-//	 \
-//	 var tos = $('.tos')[0].innerHTML;\
-//	 $('.tos').remove();\
-//	 $('.signin-content').append('<div style=\"font-size:0.9em;color:#888;line-height:1.3em;\">'+tos+'</div>');\
-//	 \
-//	 var deny = $('#deny');\
-//	 deny.remove();\
-//	 var buttons = $('.buttons');\
-//	 buttons.append(deny);\
-//	 deny.css({'float': 'left', 'margin-left': '43px'});\
-//	 $('#allow').css({'margin-right': '35px', 'margin-left': '10px', 'float': 'right'});\
-//	 buttons.append('<div style=\"clear:both\"></div>');\
-//	 \
-//	 $(document.body).outerWidth(320);"];
-//	
-//	NSString *height = [authorizationView stringByEvaluatingJavaScriptFromString:@"\
-//						$('#twitainer').height() + $('#twitainer').get(0).offsetTop"];
-//	
-//	// Resize webview scroller
-//	CGFloat sizeHeight = [height floatValue] + 20.0;
-//	[[authorizationView scroller] setContentSize:CGSizeMake(320.0, sizeHeight)];
 	
 	// Fade in
 	[authorizationView fadeIn];

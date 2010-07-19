@@ -27,6 +27,7 @@
 - (id)initWithURL:(NSURL *)newURL {
 	if ((self = [super initWithURL:newURL])) {
 		self.useCookiePersistence = NO;
+		self.requestMethod = @"POST";
 	}
 	return self;
 }
@@ -47,11 +48,6 @@
 	
 	if ([TWOAuthKitConfiguration consumerKey] == nil || [TWOAuthKitConfiguration consumerSecret] == nil) {
 		return;
-	}
-	
-	// Set to POST
-	if ([self.requestMethod isEqual:@"GET"]) {
-		self.requestMethod = @"POST";
 	}
 	
 	// Signature provider
@@ -79,7 +75,6 @@
 	if (token && [token.key isEqualToString:@""] == NO) {
 		[parameterPairs addObject:[NSDictionary dictionaryWithObjectsAndKeys:token.key, @"value", @"oauth_token", @"key", nil]];
 	}
-	NSLog(@"parameterPairs: %@", parameterPairs);
 	
 	// Add existing parameters
 	if (postData) {
@@ -101,15 +96,12 @@
 	NSString *signatureBaseString = [NSString stringWithFormat:@"%@&%@&%@", self.requestMethod,
 									 [[self.url OAuthString] URLEncodedString],
 									 [normalizedRequestParameters URLEncodedString]];
-	NSLog(@"signatureBaseString: %@", signatureBaseString);
 	
 	// Sign
 	// Secrets must be urlencoded before concatenated with '&'
 	NSString *tokenSecret = token ? [token.secret URLEncodedString] : @"";
 	NSString *secret = [NSString stringWithFormat:@"%@&%@", [[TWOAuthKitConfiguration consumerSecret] URLEncodedString], tokenSecret];
 	NSString *signature = [signatureProvider signClearText:signatureBaseString withSecret:secret];
-	NSLog(@"secret: %@", secret);
-	NSLog(@"signature: %@", signature);
 	
 	// Set OAuth headers
 	NSString *oauthToken = @"";
@@ -130,7 +122,6 @@
 	
 	// Add the header
 	[self addRequestHeader:@"Authorization" value:oauthHeader];
-	NSLog(@"Authorization: %@", oauthHeader);
 }
 
 @end

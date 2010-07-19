@@ -6,8 +6,7 @@
 //  Copyright 2009 Tasteful Works, Inc. All rights reserved.
 //
 
-@class OAConsumer;
-@class OAToken;
+@class TWOAToken;
 @protocol TWTwitterOAuthViewControllerDelegate;
 
 @interface TWTwitterOAuthViewController : UINavigationController {
@@ -27,6 +26,6 @@
 
 - (void)twitterOAuthViewControllerDidCancel:(TWTwitterOAuthViewController *)viewController;
 - (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)viewController didFailWithError:(NSError *)error;
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)viewController didAuthorizeWithAccessToken:(OAToken *)accessToken userDictionary:(NSDictionary *)userDictionary;
+- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)viewController didAuthorizeWithAccessToken:(TWOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary;
 
 @end

@@ -10,7 +10,6 @@
 
 @class TWOAFormRequest;
 @class TWLoadingView;
-@class OAConsumer;
 @class TWOAToken;
 
 @interface TWTwitterOAuthInternalViewController : UIViewController <UIWebViewDelegate, ASIHTTPRequestDelegate> {
@@ -19,11 +18,8 @@
 	UIWebView *authorizationView;
 	
 	TWOAFormRequest *request;
-	OAConsumer *consumer;
 	TWOAToken *requestToken;
+	TWOAToken *accessToken;
 }
-
-@property (nonatomic, retain) OAConsumer *consumer;
-@property (nonatomic, retain) TWOAToken *requestToken;
 
 @end

@@ -11,9 +11,18 @@
 
 @implementation TwitterDemoViewController
 
+#pragma mark NSObject
+
+- (void)dealloc {
+	[userLabel release];
+	[super dealloc];
+}
+
+#pragma mark UIViewController
+
 - (void)viewDidLoad {
-//	#error Please set your consumer key and secret
-	[TWOAuthKitConfiguration setConsumerKey:@"MRYaVxPdxijdnFPYBKVQ" secret:@"YCk4IDmXA119BIzqmt569mIXF5R5BBce81F0TQNeSWI"];
+	#error Please set your consumer key and secret below and remove this line
+	[TWOAuthKitConfiguration setConsumerKey:@"CONSUMER_KEY_GOES_HERE" secret:@"CONSUMER_SECRET_GOES_HERE"];
 	
 	// Login button
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -21,6 +30,10 @@
 	[button setTitle:@"Login" forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:button];
+	
+	// User label
+	userLabel = [[UILabel alloc] initWithFrame:CGRectMake(40.0, 100.0, 300.0, 20.0)];
+	[self.view addSubview:userLabel];
 }
 
 #pragma mark Actions
@@ -50,9 +63,11 @@
 }
 
 
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)viewController didAuthorizeWithAccessToken:(OAToken *)accessToken userDictionary:(NSDictionary *)userDictionary {
+- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)viewController didAuthorizeWithAccessToken:(TWOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary {
 	NSLog(@"Finished! %@", userDictionary);
 	[self dismissModalViewControllerAnimated:YES];
+	
+	userLabel.text = [NSString stringWithFormat:@"Logged in as @%@", [userDictionary objectForKey:@"screen_name"]];
 }
 
 @end
