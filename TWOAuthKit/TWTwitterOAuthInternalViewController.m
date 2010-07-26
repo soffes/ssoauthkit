@@ -98,12 +98,15 @@
 // *** Step 1
 - (void)_requestRequestToken {
 
+	[request release];
+	
 	// Update loading text
 	loadingView.text = @"Requesting token...";
 	
 	// Perform request for request token
 	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/oauth/request_token"];
 	request = [[TWOAFormRequest alloc] initWithURL:url];
+	[url release];
 	request.delegate = self;
 	[request startAsynchronous];
 }

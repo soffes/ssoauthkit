@@ -86,7 +86,6 @@
 	// Sort and concatenate
 	NSMutableString *normalizedRequestParameters = [[NSMutableString alloc] init];
 	NSArray *sortedPairs = [parameterPairs sortedArrayUsingSelector:@selector(compare:)];
-	[parameterPairs release];
 	
 	NSUInteger i = 0;
 	NSUInteger count = [parameterPairs count] - 1;
@@ -95,6 +94,7 @@
 		[normalizedRequestParameters appendString:string];
 		i++;
 	}
+	[parameterPairs release];
 	
 	// OAuth Spec, Section 9.1.2 "Concatenate Request Elements"
 	NSString *signatureBaseString = [NSString stringWithFormat:@"%@&%@&%@", self.requestMethod,
