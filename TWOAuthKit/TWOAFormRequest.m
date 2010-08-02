@@ -12,7 +12,7 @@
 #import "OAHMAC_SHA1SignatureProvider.h"
 #import "NSURL+OAuthString.h"
 #import "NSDictionary+oaCompareKeys.h"
-#import <TWToolkit/NSString+encoding.h>
+#import <TWToolkit/NSString+TWToolkitAdditions.h>
 
 @implementation TWOAFormRequest
 

@@ -11,7 +11,7 @@
 #import "TWOAuthKitConfiguration.h"
 #import "OAHMAC_SHA1SignatureProvider.h"
 #import "NSURL+OAuthString.h"
-#import <TWToolkit/NSString+encoding.h>
+#import <TWToolkit/NSString+TWToolkitAdditions.h>
 
 @implementation TWOARequest
 
