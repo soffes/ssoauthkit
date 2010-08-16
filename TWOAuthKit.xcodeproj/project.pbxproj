@@ -619,7 +619,7 @@
 				DSTROOT = /tmp/TWOAuthKit.dst;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = TWOAuthKit_Prefix.pch;
+				GCC_PREFIX_HEADER = "Other Sources/TWOAuthKit_Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/TWOAuthKit/Vendor/yajl-objc\"/**",
 					"\"$(SRCROOT)/TWOAuthKit/Vendor/TWToolkit\"",
