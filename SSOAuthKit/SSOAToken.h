@@ -1,14 +1,14 @@
 //
-//  TWOAToken.h
-//  TWOAuthKit
+//  SSOAToken.h
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 7/16/10.
-//  Copyright 2010 Tasteful Works, Inc. All rights reserved.
+//  Copyright 2010 Sam Soffes, Inc. All rights reserved.
 //
 
-#import "TWOAConsumer.h"
+#import "SSOAConsumer.h"
 
-@interface TWOAToken : TWOAConsumer {
+@interface SSOAToken : SSOAConsumer {
 	
 }
 

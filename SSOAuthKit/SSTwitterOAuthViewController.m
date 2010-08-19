@@ -1,23 +1,23 @@
 //
-//  TWTwitterOAuthViewController.m
-//  TWToolkit
+//  SSTwitterOAuthViewController.m
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 11/3/09.
-//  Copyright 2009 Tasteful Works, Inc. All rights reserved.
+//  Copyright 2009 Sam Soffes, Inc. All rights reserved.
 //
 
-#import "TWTwitterOAuthViewController.h"
-#import "TWTwitterOAuthInternalViewController.h"
-#import "TWOAuthKitConfiguration.h"
+#import "SSTwitterOAuthViewController.h"
+#import "SSTwitterOAuthInternalViewController.h"
+#import "SSOAuthKitConfiguration.h"
 
-@implementation TWTwitterOAuthViewController
+@implementation SSTwitterOAuthViewController
 
 @synthesize delegate;
 
 #pragma mark Initalizer
 
-- (id)initWithDelegate:(id<TWTwitterOAuthViewControllerDelegate>)aDelegate {
-	TWTwitterOAuthInternalViewController *internalViewController = [[TWTwitterOAuthInternalViewController alloc] initWithNibName:nil bundle:nil];
+- (id)initWithDelegate:(id<SSTwitterOAuthViewControllerDelegate>)aDelegate {
+	SSTwitterOAuthInternalViewController *internalViewController = [[SSTwitterOAuthInternalViewController alloc] initWithNibName:nil bundle:nil];
 	if (self = [super initWithRootViewController:internalViewController]) {
 		self.delegate = aDelegate;
 	}

@@ -6,9 +6,9 @@
 //  Copyright Tasteful Works 2010. All rights reserved.
 //
 
-#import "TWTwitterOAuthViewController.h"
+#import "SSTwitterOAuthViewController.h"
 
-@interface TwitterDemoViewController : UIViewController <TWTwitterOAuthViewControllerDelegate> {
+@interface TwitterDemoViewController : UIViewController <SSTwitterOAuthViewControllerDelegate> {
 
 	UILabel *userLabel;
 }

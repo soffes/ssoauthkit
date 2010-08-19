@@ -1,23 +1,23 @@
 //
-//  TWTwitterOAuthInternalViewController.m
-//  TWToolkit
+//  SSTwitterOAuthInternalViewController.m
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 11/9/09.
-//  Copyright 2009 Tasteful Works, Inc. All rights reserved.
+//  Copyright 2009 Sam Soffes, Inc. All rights reserved.
 //
 
-#import "TWTwitterOAuthInternalViewController.h"
-#import "TWTwitterOAuthViewController.h"
-#import "TWOAToken.h"
-#import "TWOAFormRequest.h"
+#import "SSTwitterOAuthInternalViewController.h"
+#import "SSTwitterOAuthViewController.h"
+#import "SSOAToken.h"
+#import "SSOAFormRequest.h"
 #import "ASIHTTPRequest.h"
 #import "NSObject+yajl.h"
-#import <TWToolkit/TWLoadingView.h>
-#import <TWToolkit/TWCategories.h>
+#import <SSToolkit/SSLoadingView.h>
+#import <SSToolkit/SSCategories.h>
 
-@interface TWTwitterOAuthInternalViewController (Private)
+@interface SSTwitterOAuthInternalViewController (Private)
 
-- (TWTwitterOAuthViewController *)_parent;
+- (SSTwitterOAuthViewController *)_parent;
 - (void)_requestRequestToken;
 - (void)_requestAccessToken;
 - (void)_verifyAccessTokenWithPin:(NSString *)pin;
@@ -26,7 +26,7 @@
 @end
 
 
-@implementation TWTwitterOAuthInternalViewController
+@implementation SSTwitterOAuthInternalViewController
 
 #pragma mark NSObject
 
@@ -55,7 +55,7 @@
 	// Background image
 	UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 190.0)];
 	backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
-	backgroundImageView.image = [UIImage imageNamed:@"images/twitter_oauth_background.png" bundle:@"TWOAuthKit.bundle"];
+	backgroundImageView.image = [UIImage imageNamed:@"images/twitter_oauth_background.png" bundle:@"SSOAuthKit.bundle"];
 	backgroundImageView.opaque = YES;
 	backgroundImageView.contentMode = UIViewContentModeTopLeft;
 	[self.view addSubview:backgroundImageView];
@@ -69,7 +69,7 @@
 	[cancelButton release];
 	
 	// Loading
-	loadingView = [[TWLoadingView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height)];
+	loadingView = [[SSLoadingView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height)];
 	loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	loadingView.backgroundColor = [UIColor clearColor];
 	loadingView.opaque = NO;
@@ -90,8 +90,8 @@
 #pragma mark Private Methods
 #pragma mark -
 
-- (TWTwitterOAuthViewController *)_parent {
-	return (TWTwitterOAuthViewController *)self.navigationController;
+- (SSTwitterOAuthViewController *)_parent {
+	return (SSTwitterOAuthViewController *)self.navigationController;
 }
 
 
@@ -105,7 +105,7 @@
 	
 	// Perform request for request token
 	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/oauth/request_token"];
-	request = [[TWOAFormRequest alloc] initWithURL:url];
+	request = [[SSOAFormRequest alloc] initWithURL:url];
 	[url release];
 	request.delegate = self;
 	[request startAsynchronous];
@@ -150,7 +150,7 @@
 	
 	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/oauth/access_token"];
 
-	request = [[TWOAFormRequest alloc] initWithURL:url];
+	request = [[SSOAFormRequest alloc] initWithURL:url];
 	request.token = requestToken;
 	request.delegate = self;
 	[request addPostValue:pin forKey:@"oauth_verifier"];
@@ -170,7 +170,7 @@
 	
 	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1/account/verify_credentials.json"];
 	
-	request = [[TWOAFormRequest alloc] initWithURL:url];
+	request = [[SSOAFormRequest alloc] initWithURL:url];
 	request.requestMethod = @"GET";
 	request.token = accessToken;
 	request.delegate = self;
@@ -227,7 +227,7 @@
 		}
 		
 		// Get token
-		TWOAToken *aToken = [[TWOAToken alloc] initWithHTTPResponseBody:httpBody];
+		SSOAToken *aToken = [[SSOAToken alloc] initWithHTTPResponseBody:httpBody];
 		
 		// Check for token error
 		if (!aToken.key || !aToken.secret) {
@@ -255,7 +255,7 @@
 	else if ([path isEqualToString:@"/oauth/access_token"]) {
 		
 		// Get token
-		TWOAToken *aToken = [[TWOAToken alloc] initWithHTTPResponseBody:[aRequest responseString]];
+		SSOAToken *aToken = [[SSOAToken alloc] initWithHTTPResponseBody:[aRequest responseString]];
 		
 		// Check for token error
 		if (aToken == nil) {

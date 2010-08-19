@@ -1,20 +1,20 @@
 //
-//  TWOARequest.h
-//  TWOAuthKit
+//  SSOARequest.h
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 1/25/10.
-//  Copyright 2010 Tasteful Works. All rights reserved.
+//  Copyright 2010 Sam Soffes. All rights reserved.
 //
 
 #import "ASIHTTPRequest.h"
 
-@class TWOAToken;
+@class SSOAToken;
 
-@interface TWOARequest : ASIHTTPRequest {
+@interface SSOARequest : ASIHTTPRequest {
 
-	TWOAToken *token;
+	SSOAToken *token;
 }
 
-@property (copy) TWOAToken *token;
+@property (copy) SSOAToken *token;
 
 @end

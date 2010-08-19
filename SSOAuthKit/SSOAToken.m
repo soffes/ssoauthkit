@@ -1,14 +1,14 @@
 //
-//  TWOAToken.m
-//  TWOAuthKit
+//  SSOAToken.m
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 7/16/10.
-//  Copyright 2010 Tasteful Works, Inc. All rights reserved.
+//  Copyright 2010 Sam Soffes, Inc. All rights reserved.
 //
 
-#import "TWOAToken.h"
+#import "SSOAToken.h"
 
-@implementation TWOAToken
+@implementation SSOAToken
 
 #pragma mark Initializers
 

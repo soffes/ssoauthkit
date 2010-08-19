@@ -1,20 +1,20 @@
 //
-//  TWOAFormRequest.m
-//  TWOAuthKit
+//  SSOAFormRequest.m
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 4/7/10.
-//  Copyright 2010 Tasteful Works. All rights reserved.
+//  Copyright 2010 Sam Soffes. All rights reserved.
 //
 
-#import "TWOAFormRequest.h"
-#import "TWOAToken.h"
-#import "TWOAuthKitConfiguration.h"
+#import "SSOAFormRequest.h"
+#import "SSOAToken.h"
+#import "SSOAuthKitConfiguration.h"
 #import "OAHMAC_SHA1SignatureProvider.h"
 #import "NSURL+OAuthString.h"
 #import "NSDictionary+oaCompareKeys.h"
-#import <TWToolkit/NSString+TWToolkitAdditions.h>
+#import <SSToolkit/NSString+SSToolkitAdditions.h>
 
-@implementation TWOAFormRequest
+@implementation SSOAFormRequest
 
 @synthesize token;
 
@@ -33,7 +33,7 @@
 }
 
 
-- (void)setToken:(TWOAToken *)aToken {
+- (void)setToken:(SSOAToken *)aToken {
 	if (aToken == token) {
 		return;
 	}
@@ -46,7 +46,7 @@
 - (void)buildRequestHeaders {
 	[super buildRequestHeaders];
 	
-	if ([TWOAuthKitConfiguration consumerKey] == nil || [TWOAuthKitConfiguration consumerSecret] == nil) {
+	if ([SSOAuthKitConfiguration consumerKey] == nil || [SSOAuthKitConfiguration consumerSecret] == nil) {
 		return;
 	}
 	
@@ -65,7 +65,7 @@
 	// OAuth Spec, Section 9.1.1 "Normalize Request Parameters"
 	// Build a sorted array of both request parameters and OAuth header parameters
 	NSMutableArray *parameterPairs = [[NSMutableArray alloc] initWithObjects:
-									  [NSDictionary dictionaryWithObjectsAndKeys:[TWOAuthKitConfiguration consumerKey], @"value", @"oauth_consumer_key", @"key", nil],
+									  [NSDictionary dictionaryWithObjectsAndKeys:[SSOAuthKitConfiguration consumerKey], @"value", @"oauth_consumer_key", @"key", nil],
 									  [NSDictionary dictionaryWithObjectsAndKeys:[signatureProvider name], @"value", @"oauth_signature_method", @"key", nil],
 									  [NSDictionary dictionaryWithObjectsAndKeys:timestamp, @"value", @"oauth_timestamp", @"key", nil],
 									  [NSDictionary dictionaryWithObjectsAndKeys:nonce, @"value", @"oauth_nonce", @"key", nil],
@@ -100,7 +100,7 @@
 	// Sign
 	// Secrets must be urlencoded before concatenated with '&'
 	NSString *tokenSecret = token ? [token.secret URLEncodedString] : @"";
-	NSString *secret = [NSString stringWithFormat:@"%@&%@", [[TWOAuthKitConfiguration consumerSecret] URLEncodedString], tokenSecret];
+	NSString *secret = [NSString stringWithFormat:@"%@&%@", [[SSOAuthKitConfiguration consumerSecret] URLEncodedString], tokenSecret];
 	NSString *signature = [signatureProvider signClearText:signatureBaseString withSecret:secret];
 	
 	// Set OAuth headers
@@ -113,7 +113,7 @@
 							 [nonce URLEncodedString],
 							 [[signatureProvider name] URLEncodedString],
 							 [timestamp URLEncodedString],
-							 [[TWOAuthKitConfiguration consumerKey] URLEncodedString],
+							 [[SSOAuthKitConfiguration consumerKey] URLEncodedString],
 							 oauthToken,
 							 [signature URLEncodedString]];
 	

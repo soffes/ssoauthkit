@@ -1,20 +1,20 @@
 //
-//  TWOAFormRequest.h
-//  TWOAuthKit
+//  SSOAFormRequest.h
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 4/7/10.
-//  Copyright 2010 Tasteful Works. All rights reserved.
+//  Copyright 2010 Sam Soffes. All rights reserved.
 //
 
 #import "ASIFormDataRequest.h"
 
-@class TWOAToken;
+@class SSOAToken;
 
-@interface TWOAFormRequest : ASIFormDataRequest {
+@interface SSOAFormRequest : ASIFormDataRequest {
 	
-	TWOAToken *token;
+	SSOAToken *token;
 }
 
-@property (copy) TWOAToken *token;
+@property (copy) SSOAToken *token;
 
 @end

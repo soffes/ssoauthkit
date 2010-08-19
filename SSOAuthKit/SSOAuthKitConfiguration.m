@@ -1,21 +1,21 @@
 //
-//  TWOAuthKitConfiguration.m
-//  TWOAuthKit
+//  SSOAuthKitConfiguration.m
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 7/16/10.
-//  Copyright 2010 Tasteful Works, Inc. All rights reserved.
+//  Copyright 2010 Sam Soffes, Inc. All rights reserved.
 //
 
-#import "TWOAuthKitConfiguration.h"
-#import "TWOAConsumer.h"
+#import "SSOAuthKitConfiguration.h"
+#import "SSOAConsumer.h"
 
 static NSString *consumerKey = nil;
 static NSString *consumerSecret = nil;
 
-@implementation TWOAuthKitConfiguration
+@implementation SSOAuthKitConfiguration
 
-+ (TWOAConsumer *)consumer {
-	return [[[TWOAConsumer alloc] initWithKey:[self consumerKey] secret:[self consumerSecret]] autorelease];
++ (SSOAConsumer *)consumer {
+	return [[[SSOAConsumer alloc] initWithKey:[self consumerKey] secret:[self consumerSecret]] autorelease];
 }
 
 

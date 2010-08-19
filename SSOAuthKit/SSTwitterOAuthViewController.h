@@ -1,31 +1,31 @@
 //
-//  TWTwitterOAuthViewController.h
-//  TWToolkit
+//  SSTwitterOAuthViewController.h
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 11/3/09.
-//  Copyright 2009 Tasteful Works, Inc. All rights reserved.
+//  Copyright 2009 Sam Soffes, Inc. All rights reserved.
 //
 
-@class TWOAToken;
-@protocol TWTwitterOAuthViewControllerDelegate;
+@class SSOAToken;
+@protocol SSTwitterOAuthViewControllerDelegate;
 
-@interface TWTwitterOAuthViewController : UINavigationController {
+@interface SSTwitterOAuthViewController : UINavigationController {
 	
-	id<TWTwitterOAuthViewControllerDelegate> delegate;
+	id<SSTwitterOAuthViewControllerDelegate> delegate;
 }
 
-@property (nonatomic, assign) id<TWTwitterOAuthViewControllerDelegate> delegate;
+@property (nonatomic, assign) id<SSTwitterOAuthViewControllerDelegate> delegate;
 
-- (id)initWithDelegate:(id<TWTwitterOAuthViewControllerDelegate>)aDelegate;
+- (id)initWithDelegate:(id<SSTwitterOAuthViewControllerDelegate>)aDelegate;
 - (void)cancel:(id)sender;
 
 @end
 
 
-@protocol TWTwitterOAuthViewControllerDelegate <NSObject>
+@protocol SSTwitterOAuthViewControllerDelegate <NSObject>
 
-- (void)twitterOAuthViewControllerDidCancel:(TWTwitterOAuthViewController *)twitterOAuthViewController;
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)twitterOAuthViewController didFailWithError:(NSError *)error;
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)twitterOAuthViewController didAuthorizeWithAccessToken:(TWOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary;
+- (void)twitterOAuthViewControllerDidCancel:(SSTwitterOAuthViewController *)twitterOAuthViewController;
+- (void)twitterOAuthViewController:(SSTwitterOAuthViewController *)twitterOAuthViewController didFailWithError:(NSError *)error;
+- (void)twitterOAuthViewController:(SSTwitterOAuthViewController *)twitterOAuthViewController didAuthorizeWithAccessToken:(SSOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary;
 
 @end

@@ -1,25 +1,25 @@
 //
-//  TWTwitterOAuthInternalViewController.h
-//  TWToolkit
+//  SSTwitterOAuthInternalViewController.h
+//  SSOAuthKit
 //
 //  Created by Sam Soffes on 11/9/09.
-//  Copyright 2009 Tasteful Works, Inc. All rights reserved.
+//  Copyright 2009 Sam Soffes, Inc. All rights reserved.
 //
 
 #import "ASIHTTPRequestDelegate.h"
 
-@class TWOAFormRequest;
-@class TWLoadingView;
-@class TWOAToken;
+@class SSOAFormRequest;
+@class SSLoadingView;
+@class SSOAToken;
 
-@interface TWTwitterOAuthInternalViewController : UIViewController <UIWebViewDelegate, ASIHTTPRequestDelegate> {
+@interface SSTwitterOAuthInternalViewController : UIViewController <UIWebViewDelegate, ASIHTTPRequestDelegate> {
 
-	TWLoadingView *loadingView;
+	SSLoadingView *loadingView;
 	UIWebView *authorizationView;
 	
-	TWOAFormRequest *request;
-	TWOAToken *requestToken;
-	TWOAToken *accessToken;
+	SSOAFormRequest *request;
+	SSOAToken *requestToken;
+	SSOAToken *accessToken;
 }
 
 @end

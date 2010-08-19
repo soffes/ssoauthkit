@@ -7,7 +7,7 @@
 //
 
 #import "TwitterDemoViewController.h"
-#import <TWOAuthKit/TWOAuthKit.h>.
+#import <SSOAuthKit/SSOAuthKit.h>
 
 @implementation TwitterDemoViewController
 
@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
 	#error Please set your consumer key and secret below and remove this line
-	[TWOAuthKitConfiguration setConsumerKey:@"CONSUMER_KEY_GOES_HERE" secret:@"CONSUMER_SECRET_GOES_HERE"];
+	[SSOAuthKitConfiguration setConsumerKey:@"CONSUMER_KEY_GOES_HERE" secret:@"CONSUMER_SECRET_GOES_HERE"];
 	
 	// Login button
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -39,21 +39,21 @@
 #pragma mark Actions
 
 - (void)login:(id)sender {
-	TWTwitterOAuthViewController *viewController = [[TWTwitterOAuthViewController alloc] initWithDelegate:self];
+	SSTwitterOAuthViewController *viewController = [[SSTwitterOAuthViewController alloc] initWithDelegate:self];
 	viewController.modalPresentationStyle = UIModalPresentationFormSheet;
 	[self presentModalViewController:viewController animated:YES];
 	[viewController release];
 }
 
-#pragma mark TWTwitterOAuthViewControllerDelegate
+#pragma mark SSTwitterOAuthViewControllerDelegate
 
-- (void)twitterOAuthViewControllerDidCancel:(TWTwitterOAuthViewController *)twitterOAuthViewController {
+- (void)twitterOAuthViewControllerDidCancel:(SSTwitterOAuthViewController *)twitterOAuthViewController {
 	NSLog(@"Canceled");
 	[self dismissModalViewControllerAnimated:YES];
 }
 
 
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)twitterOAuthViewController didFailWithError:(NSError *)error {
+- (void)twitterOAuthViewController:(SSTwitterOAuthViewController *)twitterOAuthViewController didFailWithError:(NSError *)error {
 	NSLog(@"Failed with error: %@", error);
 	[self dismissModalViewControllerAnimated:YES];
 	
@@ -63,7 +63,7 @@
 }
 
 
-- (void)twitterOAuthViewController:(TWTwitterOAuthViewController *)twitterOAuthViewController didAuthorizeWithAccessToken:(TWOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary {
+- (void)twitterOAuthViewController:(SSTwitterOAuthViewController *)twitterOAuthViewController didAuthorizeWithAccessToken:(SSOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary {
 	NSLog(@"Finished! %@", userDictionary);
 	[self dismissModalViewControllerAnimated:YES];
 	

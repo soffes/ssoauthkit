@@ -6,8 +6,6 @@
 //  Copyright Tasteful Works 2010. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @class TwitterDemoViewController;
 
 @interface TwitterDemoAppDelegate : NSObject <UIApplicationDelegate> {
