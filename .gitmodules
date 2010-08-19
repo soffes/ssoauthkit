@@ -1,12 +1,9 @@
-[submodule "TWOAuthKit/Vendor/ASIHTTPRequest"]
-	path = TWOAuthKit/Vendor/ASIHTTPRequest
+[submodule "SSOAuthKit/Vendor/ASIHTTPRequest"]
+	path = SSOAuthKit/Vendor/ASIHTTPRequest
 	url = http://github.com/pokeb/asi-http-request.git
-[submodule "TWOAuthKit/Vendor/yajl-objc"]
-	path = TWOAuthKit/Vendor/yajl-objc
+[submodule "SSOAuthKit/Vendor/yajl-objc"]
+	path = SSOAuthKit/Vendor/yajl-objc
 	url = http://github.com/gabriel/yajl-objc.git
-[submodule "TWOAuthKit/Vendor/TWToolkit"]
-	path = TWOAuthKit/Vendor/TWToolkit
-	url = http://github.com/tastefulworks/twtoolkit.git
 [submodule "SSOAuthKit/Vendor/SSToolkit"]
 	path = SSOAuthKit/Vendor/SSToolkit
 	url = http://github.com/samsoffes/sstoolkit.git
