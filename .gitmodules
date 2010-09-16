@@ -7,3 +7,6 @@
 [submodule "SSOAuthKit/Vendor/SSToolkit"]
 	path = SSOAuthKit/Vendor/SSToolkit
 	url = http://github.com/samsoffes/sstoolkit.git
+[submodule "SSOAuthKit/Vendor/json-framework"]
+	path = SSOAuthKit/Vendor/json-framework
+	url = http://github.com/stig/json-framework.git

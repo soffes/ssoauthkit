@@ -11,7 +11,7 @@
 #import "SSOAToken.h"
 #import "SSOAFormRequest.h"
 #import "ASIHTTPRequest.h"
-#import "NSObject+yajl.h"
+#import "JSON.h"
 #import <SSToolkit/SSLoadingView.h>
 #import <SSToolkit/SSCategories.h>
 
@@ -277,12 +277,12 @@
 	
 	// *** Step 4 - Get user
 	else if ([path isEqualToString:@"/1/account/verify_credentials.json"]) {
-		NSError *error = nil;
-		NSDictionary *dictionary = [[aRequest responseString] yajl_JSON:&error];
-		if (error) {
+		NSDictionary *dictionary = [[aRequest responseString] JSONValue];
+		if (!dictionary) {
 			// TODO: Pass access token along since we successfully got it already
 			if ([[[self _parent] delegate] respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-				[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didFailWithError:error];
+				// TODO: Provide JSON error
+				[[[self _parent] delegate] twitterOAuthViewController:[self _parent] didFailWithError:nil];
 			}
 			return;
 		}
