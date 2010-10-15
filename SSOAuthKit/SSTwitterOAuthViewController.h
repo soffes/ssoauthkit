@@ -6,12 +6,24 @@
 //  Copyright 2009 Sam Soffes, Inc. All rights reserved.
 //
 
+#import "ASIHTTPRequestDelegate.h"
+
+@class SSOAFormRequest;
+@class SSLoadingView;
 @class SSOAToken;
+
 @protocol SSTwitterOAuthViewControllerDelegate;
 
-@interface SSTwitterOAuthViewController : UINavigationController {
+@interface SSTwitterOAuthViewController : UIViewController <UIWebViewDelegate, ASIHTTPRequestDelegate> {
 	
-	id<SSTwitterOAuthViewControllerDelegate> delegate;
+	id<SSTwitterOAuthViewControllerDelegate> _delegate;
+	
+	SSLoadingView *_loadingView;
+	UIWebView *_authorizationView;
+	
+	SSOAFormRequest *_request;
+	SSOAToken *_requestToken;
+	SSOAToken *_accessToken;
 }
 
 @property (nonatomic, assign) id<SSTwitterOAuthViewControllerDelegate> delegate;
