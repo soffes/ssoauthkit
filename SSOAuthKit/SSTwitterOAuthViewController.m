@@ -81,7 +81,7 @@
 #pragma mark Initalizer
 
 - (id)initWithDelegate:(id<SSTwitterOAuthViewControllerDelegate>)aDelegate {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		self.delegate = aDelegate;
 	}
 	return self;

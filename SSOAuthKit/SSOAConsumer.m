@@ -29,7 +29,7 @@
 		return nil;
 	}
 	
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		self.key = aKey;
 		self.secret = aSecret;
 	}
@@ -59,7 +59,7 @@
 #pragma mark NSCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		self.key = [decoder decodeObjectForKey:@"key"];
 		self.secret = [decoder decodeObjectForKey:@"secret"];
 	}
