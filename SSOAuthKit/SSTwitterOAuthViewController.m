@@ -51,13 +51,12 @@
 	self.title = @"Authorize";
 	
 	// Background image
-	UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 190.0)];
-	backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
-	backgroundImageView.image = [UIImage imageNamed:@"images/twitter_oauth_background.png" bundle:@"SSOAuthKit.bundle"];
-	backgroundImageView.opaque = YES;
-	backgroundImageView.contentMode = UIViewContentModeTopLeft;
-	[self.view addSubview:backgroundImageView];
-	[backgroundImageView release];
+	UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 100.0)];
+	backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+	backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"images/twitter_oauth_background.png" bundle:@"SSOAuthKit.bundle"]];
+	backgroundView.opaque = YES;
+	[self.view addSubview:backgroundView];
+	[backgroundView release];
 	self.view.backgroundColor = [UIColor colorWithRed:0.753 green:0.875 blue:0.925 alpha:1.0];
 	
 	// Loading
