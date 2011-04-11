@@ -3,18 +3,15 @@
 //  TwitterDemo
 //
 //  Created by Sam Soffes on 7/16/10.
-//  Copyright Tasteful Works 2010. All rights reserved.
+//  Copyright Sam Soffes 2010-2011. All rights reserved.
 //
 
-@class TwitterDemoViewController;
-
 @interface TwitterDemoAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
-    TwitterDemoViewController *viewController;
+	
+    UIWindow *_window;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet TwitterDemoViewController *viewController;
+@property (nonatomic, retain) UIWindow *window;
 
 @end
 

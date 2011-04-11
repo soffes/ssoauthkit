@@ -3,7 +3,7 @@
 //  SSOAuthKit
 //
 //  Created by Sam Soffes on 1/25/10.
-//  Copyright 2010 Sam Soffes. All rights reserved.
+//  Copyright 2010-2011 Sam Soffes. All rights reserved.
 //
 
 #import "SSOARequest.h"
@@ -15,7 +15,7 @@
 
 @implementation SSOARequest
 
-@synthesize token;
+@synthesize token = _token;
 
 - (void)dealloc {
 	self.token = nil;
@@ -28,16 +28,6 @@
 		self.useCookiePersistence = NO;
 	}
 	return self;
-}
-
-
-- (void)setToken:(SSOAToken *)aToken {
-	if (aToken == token) {
-		return;
-	}
-	
-	[token release];
-	token = [aToken retain];
 }
 
 
@@ -79,8 +69,8 @@
 									  [NSDictionary dictionaryWithObjectsAndKeys:@"1.0", @"value", @"oauth_version", @"key", nil],
 									  nil];
 	
-	if ([token.key isEqualToString:@""] == NO) {
-		[parameterPairs addObject:[NSDictionary dictionaryWithObject:token.key forKey:@"oauth_token"]];
+	if ([_token.key isEqualToString:@""] == NO) {
+		[parameterPairs addObject:[NSDictionary dictionaryWithObject:_token.key forKey:@"oauth_token"]];
 	}
 	
 	// Sort and concatenate
@@ -106,12 +96,12 @@
 	// Secrets must be urlencoded before concatenated with '&'
 	NSString *signature = [signatureProvider signClearText:signatureBaseString withSecret:
 						   [NSString stringWithFormat:@"%@&%@", [[SSOAuthKitConfiguration consumerSecret] URLEncodedString], 
-							[token.secret URLEncodedString]]];
+							[_token.secret URLEncodedString]]];
 	
 	// Set OAuth headers
 	NSString *oauthToken = @"";
-	if ([token.key isEqualToString:@""] == NO) {
-		oauthToken = [NSString stringWithFormat:@"oauth_token=\"%@\", ", [token.key URLEncodedString]];
+	if ([_token.key isEqualToString:@""] == NO) {
+		oauthToken = [NSString stringWithFormat:@"oauth_token=\"%@\", ", [_token.key URLEncodedString]];
 	}
 	
 	NSString *oauthHeader = [NSString stringWithFormat:@"OAuth oauth_consumer_key=\"%@\", %@oauth_signature_method=\"%@\", oauth_signature=\"%@\", oauth_timestamp=\"%@\", oauth_nonce=\"%@\", oauth_version=\"1.0\"",

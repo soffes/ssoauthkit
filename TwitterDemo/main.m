@@ -3,15 +3,12 @@
 //  TwitterDemo
 //
 //  Created by Sam Soffes on 7/16/10.
-//  Copyright Tasteful Works 2010. All rights reserved.
+//  Copyright Sam Soffes 2010-2011. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-int main(int argc, char *argv[]) {
-    
+int main(int argc, char *argv[]) {    
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
+    int retVal = UIApplicationMain(argc, argv, nil, @"TwitterDemoAppDelegate");
     [pool release];
     return retVal;
 }

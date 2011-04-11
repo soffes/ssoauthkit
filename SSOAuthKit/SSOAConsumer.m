@@ -3,15 +3,15 @@
 //  SSOAuthKit
 //
 //  Created by Sam Soffes on 7/16/10.
-//  Copyright 2010 Sam Soffes, Inc. All rights reserved.
+//  Copyright 2010-2011 Sam Soffes. All rights reserved.
 //
 
 #import "SSOAConsumer.h"
 
 @implementation SSOAConsumer
 
-@synthesize key;
-@synthesize secret;
+@synthesize key = _key;
+@synthesize secret = _secret;
 
 #pragma mark NSObject
 

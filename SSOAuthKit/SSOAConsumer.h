@@ -3,13 +3,13 @@
 //  SSOAuthKit
 //
 //  Created by Sam Soffes on 7/16/10.
-//  Copyright 2010 Sam Soffes, Inc. All rights reserved.
+//  Copyright 2010-2011 Sam Soffes. All rights reserved.
 //
 
 @interface SSOAConsumer : NSObject <NSCoding, NSCopying> {
 
-	NSString *key;
-	NSString *secret;
+	NSString *_key;
+	NSString *_secret;
 }
 
 @property (nonatomic, copy) NSString *key;

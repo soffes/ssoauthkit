@@ -3,7 +3,7 @@
 //  SSOAuthKit
 //
 //  Created by Sam Soffes on 11/3/09.
-//  Copyright 2009 Sam Soffes, Inc. All rights reserved.
+//  Copyright 2009-2011 Sam Soffes. All rights reserved.
 //
 
 #import "SSTwitterOAuthViewController.h"
@@ -11,15 +11,19 @@
 #import "SSOAToken.h"
 #import "SSOAFormRequest.h"
 #import "ASIHTTPRequest.h"
-#import "JSON.h"
+#import "JSONKit.h"
 #import <SSToolkit/SSLoadingView.h>
 #import <SSToolkit/SSCategories.h>
+
+static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstwitteroauthviewcontroller";
 
 @interface SSTwitterOAuthViewController (Private)
 - (void)_requestRequestToken;
 - (void)_requestAccessToken;
 - (void)_verifyAccessTokenWithPin:(NSString *)pin;
 - (void)_requestUser;
+- (void)_failWithError:(NSError *)error;
+- (void)_failWithErrorString:(NSString *)message code:(NSInteger)code;
 @end
 
 @implementation SSTwitterOAuthViewController
@@ -182,6 +186,22 @@
 }
 
 
+- (void)_failWithError:(NSError *)error {
+	if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
+		[_delegate twitterOAuthViewController:self didFailWithError:error];
+	}
+}
+
+
+- (void)_failWithErrorString:(NSString *)message code:(NSInteger)code {
+	if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
+		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:message, NSLocalizedDescriptionKey, nil];
+		NSError *error = [NSError errorWithDomain:kSSTwitterOAuthViewControllerErrorDomain code:code userInfo:userInfo];
+		[_delegate twitterOAuthViewController:self didFailWithError:error];
+	}
+}
+
+
 #pragma mark TWURLConnectionDelegate
 
 - (void)requestStarted:(ASIHTTPRequest *)aRequest {
@@ -191,10 +211,7 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)aRequest {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	
-	if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-		[_delegate twitterOAuthViewController:self didFailWithError:[aRequest error]];
-	}
+	[self _failWithError:[aRequest error]];
 }
 
 
@@ -202,11 +219,7 @@
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
 	if ([aRequest responseStatusCode] == 500) {
-		if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-			NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:@"Something went technically wrong on Twitter's end. Maybe try again later.", NSLocalizedDescriptionKey, nil];
-			NSError *error = [NSError errorWithDomain:@"com.tasetfulworks.twtwitteroauthviewcontroller" code:-2 userInfo:userInfo];
-			[_delegate twitterOAuthViewController:self didFailWithError:error];
-		}
+		[self _failWithErrorString:@"Something went technically wrong on Twitter's end. Maybe try again later." code:-2];
 		return;
 	}
 	
@@ -219,11 +232,7 @@
 		
 		// Check for token error
 		if ([httpBody isEqualToString:@"Failed to validate oauth signature and token"]) {
-			if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-				NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:httpBody, NSLocalizedDescriptionKey, nil];
-				NSError *error = [NSError errorWithDomain:@"com.tasetfulworks.twtwitteroauthviewcontroller" code:-1 userInfo:userInfo];
-				[_delegate twitterOAuthViewController:self didFailWithError:error];
-			}
+			[self _failWithErrorString:httpBody code:-1];
 			return;
 		}
 		
@@ -233,11 +242,7 @@
 		// Check for token error
 		if (!aToken.key || !aToken.secret) {
 			[aToken release];
-			if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-				NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:@"The request token could not be generated", NSLocalizedDescriptionKey, nil];
-				NSError *error = [NSError errorWithDomain:@"com.tasetfulworks.twtwitteroauthviewcontroller" code:-1 userInfo:userInfo];
-				[_delegate twitterOAuthViewController:self didFailWithError:error];
-			}
+			[self _failWithErrorString:@"The request token could not be generated" code:-1];
 			return;
 		}
 		
@@ -260,11 +265,7 @@
 		
 		// Check for token error
 		if (aToken == nil) {
-			if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-				NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:@"The access token could not be generated", NSLocalizedDescriptionKey, nil];
-				NSError *error = [NSError errorWithDomain:@"com.tasetfulworks.twtwitteroauthviewcontroller" code:-1 userInfo:userInfo];
-				[_delegate twitterOAuthViewController:self didFailWithError:error];
-			}
+			[self _failWithErrorString:@"The access token could not be generated" code:-1];
 			return;
 		}
 		
@@ -278,13 +279,18 @@
 	
 	// *** Step 4 - Get user
 	else if ([path isEqualToString:@"/1/account/verify_credentials.json"]) {
-		NSDictionary *dictionary = [[aRequest responseString] JSONValue];
+		NSError *jsonError = nil;
+		NSDictionary *dictionary = [[aRequest responseData] objectFromJSONDataWithParseOptions:0 error:&jsonError];
 		if (!dictionary) {
 			// TODO: Pass access token along since we successfully got it already
-			if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-				// TODO: Provide JSON error
-				[_delegate twitterOAuthViewController:self didFailWithError:nil];
-			}
+			NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+									  jsonError, NSUnderlyingErrorKey,
+									  _accessToken, @"accessToken",
+									  @"Failed to get Twitter profile.", NSLocalizedDescriptionKey,
+									  nil];			
+			NSError *error = [NSError errorWithDomain:kSSTwitterOAuthViewControllerErrorDomain code:-3 userInfo:userInfo];
+			[userInfo release];
+			[self _failWithError:error];
 			return;
 		}
 		
@@ -300,9 +306,7 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-		[_delegate twitterOAuthViewController:self didFailWithError:error];
-	}
+	[self _failWithError:error];
 }
 
 

@@ -3,7 +3,7 @@
 //  SSOAuthKit
 //
 //  Created by Sam Soffes on 4/7/10.
-//  Copyright 2010 Sam Soffes. All rights reserved.
+//  Copyright 2010-2011 Sam Soffes. All rights reserved.
 //
 
 #import "SSOAFormRequest.h"
@@ -16,7 +16,7 @@
 
 @implementation SSOAFormRequest
 
-@synthesize token;
+@synthesize token = _token;
 
 - (void)dealloc {
 	self.token = nil;
@@ -30,16 +30,6 @@
 		self.requestMethod = @"POST";
 	}
 	return self;
-}
-
-
-- (void)setToken:(SSOAToken *)aToken {
-	if (aToken == token) {
-		return;
-	}
-	
-	[token release];
-	token = [aToken retain];
 }
 
 
@@ -72,8 +62,8 @@
 									  [NSDictionary dictionaryWithObjectsAndKeys:@"1.0", @"value", @"oauth_version", @"key", nil],
 									  nil];
 	
-	if (token && [token.key isEqualToString:@""] == NO) {
-		[parameterPairs addObject:[NSDictionary dictionaryWithObjectsAndKeys:token.key, @"value", @"oauth_token", @"key", nil]];
+	if (_token && [_token.key isEqualToString:@""] == NO) {
+		[parameterPairs addObject:[NSDictionary dictionaryWithObjectsAndKeys:_token.key, @"value", @"oauth_token", @"key", nil]];
 	}
 	
 	// Add existing parameters
@@ -99,14 +89,14 @@
 	
 	// Sign
 	// Secrets must be urlencoded before concatenated with '&'
-	NSString *tokenSecret = token ? [token.secret URLEncodedString] : @"";
+	NSString *tokenSecret = _token ? [_token.secret URLEncodedString] : @"";
 	NSString *secret = [NSString stringWithFormat:@"%@&%@", [[SSOAuthKitConfiguration consumerSecret] URLEncodedString], tokenSecret];
 	NSString *signature = [signatureProvider signClearText:signatureBaseString withSecret:secret];
 	
 	// Set OAuth headers
 	NSString *oauthToken = @"";
-	if (token && [token.key isEqualToString:@""] == NO) {
-		oauthToken = [NSString stringWithFormat:@"oauth_token=\"%@\", ", [token.key URLEncodedString]];
+	if (_token && [_token.key isEqualToString:@""] == NO) {
+		oauthToken = [NSString stringWithFormat:@"oauth_token=\"%@\", ", [_token.key URLEncodedString]];
 	}
 	
 	NSString *oauthHeader = [NSString stringWithFormat:@"OAuth oauth_nonce=\"%@\", oauth_signature_method=\"%@\", oauth_timestamp=\"%@\", oauth_consumer_key=\"%@\", %@oauth_signature=\"%@\", oauth_version=\"1.0\"",

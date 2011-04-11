@@ -3,14 +3,14 @@
 //  TwitterDemo
 //
 //  Created by Sam Soffes on 7/16/10.
-//  Copyright Tasteful Works 2010. All rights reserved.
+//  Copyright Sam Soffes 2010-2011. All rights reserved.
 //
 
 #import "SSTwitterOAuthViewController.h"
 
 @interface TwitterDemoViewController : UIViewController <SSTwitterOAuthViewControllerDelegate> {
 
-	UILabel *userLabel;
+	UILabel *_userLabel;
 }
 
 - (void)login:(id)sender;

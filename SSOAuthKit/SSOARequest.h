@@ -3,7 +3,7 @@
 //  SSOAuthKit
 //
 //  Created by Sam Soffes on 1/25/10.
-//  Copyright 2010 Sam Soffes. All rights reserved.
+//  Copyright 2010-2011 Sam Soffes. All rights reserved.
 //
 
 #import "ASIHTTPRequest.h"
@@ -12,9 +12,9 @@
 
 @interface SSOARequest : ASIHTTPRequest {
 
-	SSOAToken *token;
+	SSOAToken *_token;
 }
 
-@property (copy) SSOAToken *token;
+@property (nonatomic, retain) SSOAToken *token;
 
 @end
