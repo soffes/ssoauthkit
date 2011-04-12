@@ -20,7 +20,7 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 @interface SSTwitterOAuthViewController (Private)
 - (void)_requestRequestToken;
 - (void)_requestAccessToken;
-- (void)_verifyAccessTokenWithPin:(NSString *)pin;
+- (void)_verifyAccessToken:(NSString *)verifier;
 - (void)_requestUser;
 - (void)_failWithError:(NSError *)error;
 - (void)_failWithErrorString:(NSString *)message code:(NSInteger)code;
@@ -31,6 +31,14 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 @synthesize delegate = _delegate;
 
 #pragma mark NSObject
+
+- (id)init {
+	if ((self = [super init])) {
+		self.modalPresentationStyle = UIModalPresentationFormSheet;
+	}
+	return self;
+}
+
 
 - (void)dealloc {
 	_delegate = nil;
@@ -84,11 +92,12 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 #pragma mark Initalizer
 
 - (id)initWithDelegate:(id<SSTwitterOAuthViewControllerDelegate>)aDelegate {
-	if ((self = [super init])) {
+	if ((self = [self init])) {
 		self.delegate = aDelegate;
 	}
 	return self;
 }
+
 
 #pragma mark Actions
 
@@ -143,7 +152,8 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 
 
 // *** Step 3
-- (void)_verifyAccessTokenWithPin:(NSString *)pin {
+- (void)_verifyAccessToken:(NSString *)verifier {
+	_verifying = YES;
 	_loadingView.text = @"Verifying...";
 	
 	[_authorizationView fadeOut];
@@ -159,7 +169,7 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 	_request = [[SSOAFormRequest alloc] initWithURL:url];
 	_request.token = _requestToken;
 	_request.delegate = self;
-	[_request addPostValue:pin forKey:@"oauth_verifier"];
+	[_request addPostValue:verifier forKey:@"oauth_verifier"];
 	[_request startAsynchronous];
 	
 	[url release];
@@ -311,13 +321,26 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)aRequest navigationType:(UIWebViewNavigationType)navigationType {
+	if (_accessToken) {
+		return NO;
+	}
+	
 	NSURL *url = [aRequest URL];
 	// TODO: allow signup too
-	BOOL allow = ([[url host] isEqual:@"api.twitter.com"] && [[url path] isEqual:@"/oauth/authorize"]);
-	if (allow) {
+	if ([[url host] isEqual:@"api.twitter.com"] && [[url path] isEqual:@"/oauth/authorize"]) {
 		[_authorizationView fadeOut];
+		return YES;
 	}
-	return allow;
+	
+	// Check for completion redirect instead of pin
+	NSString *currentURLString = [_authorizationView stringByEvaluatingJavaScriptFromString:@"location.href"];
+	if ([currentURLString isEqualToString:@"https://api.twitter.com/oauth/authorize"]) {
+		NSString *body = [[NSString alloc] initWithData:[aRequest HTTPBody] encoding:NSUTF8StringEncoding];
+		NSDictionary *params = [NSDictionary dictionaryWithFormEncodedString:body];
+		[self _verifyAccessToken:[params objectForKey:@"oauth_verifier"]];
+	}
+	
+	return NO;
 }
 
 
@@ -327,12 +350,14 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 	// Check for pin
 	NSString *pin = [_authorizationView stringByEvaluatingJavaScriptFromString:@"document.getElementById('oauth_pin').innerText"];
 	if ([pin length] == 7) {
-		[self _verifyAccessTokenWithPin:pin];
+		[self _verifyAccessToken:pin];
 		return;
 	}
 	
 	// Fade in
-	[_authorizationView fadeIn];
+	if (!_accessToken && _verifying == NO) {
+		[_authorizationView fadeIn];
+	}
 }
 
 

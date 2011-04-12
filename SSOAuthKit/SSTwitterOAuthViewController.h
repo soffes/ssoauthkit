@@ -24,6 +24,7 @@
 	SSOAFormRequest *_request;
 	SSOAToken *_requestToken;
 	SSOAToken *_accessToken;
+	BOOL _verifying;
 }
 
 @property (nonatomic, assign) id<SSTwitterOAuthViewControllerDelegate> delegate;
@@ -35,6 +36,8 @@
 
 
 @protocol SSTwitterOAuthViewControllerDelegate <NSObject>
+
+@optional
 
 - (void)twitterOAuthViewControllerDidCancel:(SSTwitterOAuthViewController *)twitterOAuthViewController;
 - (void)twitterOAuthViewController:(SSTwitterOAuthViewController *)twitterOAuthViewController didFailWithError:(NSError *)error;

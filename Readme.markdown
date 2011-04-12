@@ -21,16 +21,15 @@ SSOAuthKit's core is `SSOARequest` and `SSOAFormRequest` which are subclasses of
 
 ## Twitter
 
-The main goal of SSOAuthKit was to make authenticating with Twitter stupid easy. There is a handy class called `SSTwitterOAuthViewController` that handles *everything* for you. Just present it as a modal:
+The main goal of SSOAuthKit was to make authenticating with Twitter stupid easy. There is a handy class called `SSTwitterOAuthViewController` that handles *everything* for you. You can have your application setup on Twitter to do the pin style verification or the redirect style verification. (If you do the redirect style, the redirect is stopped and verified by the library. You are responsible for forwarding the message to your server.) Pin style is recommended. Just present it as a modal:
 
     SSTwitterOAuthViewController *viewController = [[SSTwitterOAuthViewController alloc] initWithDelegate:self];
-    viewController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentModalViewController:viewController animated:YES];
     [viewController release];
 
 You can of course, do it however you want though.
 
-`SSTwitterOAuthViewController` has three delegate methods:
+`SSTwitterOAuthViewController` has three optional delegate methods:
 
     - (void)twitterOAuthViewControllerDidCancel:(SSTwitterOAuthViewController *)viewController;
     - (void)twitterOAuthViewController:(SSTwitterOAuthViewController *)viewController didFailWithError:(NSError *)error;
