@@ -326,8 +326,18 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 	}
 	
 	NSURL *url = [aRequest URL];
+	NSString *body = [[NSString alloc] initWithData:[aRequest HTTPBody] encoding:NSUTF8StringEncoding];
+	NSDictionary *params = [NSDictionary dictionaryWithFormEncodedString:body];
+	[body release];
+	
 	// TODO: allow signup too
 	if ([[url host] isEqual:@"api.twitter.com"] && [[url path] isEqual:@"/oauth/authorize"]) {
+		// Handle cancel
+		if ([params objectForKey:@"cancel"]) {
+			[self cancel:self];
+			return NO;
+		}
+		
 		[_authorizationView fadeOut];
 		return YES;
 	}
@@ -335,8 +345,6 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 	// Check for completion redirect instead of pin
 	NSString *currentURLString = [_authorizationView stringByEvaluatingJavaScriptFromString:@"location.href"];
 	if ([currentURLString isEqualToString:@"https://api.twitter.com/oauth/authorize"]) {
-		NSString *body = [[NSString alloc] initWithData:[aRequest HTTPBody] encoding:NSUTF8StringEncoding];
-		NSDictionary *params = [NSDictionary dictionaryWithFormEncodedString:body];
 		[self _verifyAccessToken:[params objectForKey:@"oauth_verifier"]];
 	}
 	
