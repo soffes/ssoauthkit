@@ -62,6 +62,11 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 	
 	self.title = @"Authorize";
 	
+	// Cancel button
+	UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel:)];
+	self.navigationItem.leftBarButtonItem = cancelButton;
+	[cancelButton release];
+	
 	// Background image
 	UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 100.0)];
 	backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
