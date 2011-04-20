@@ -331,12 +331,18 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 	}
 	
 	NSURL *url = [aRequest URL];
+	
+	// Allow the user to change users
+	if ([[url host] isEqualToString:@"api.twitter.com"] && [[url path] isEqualToString:@"/logout"]) {
+		return YES;
+	}
+	
 	NSString *body = [[NSString alloc] initWithData:[aRequest HTTPBody] encoding:NSUTF8StringEncoding];
 	NSDictionary *params = [NSDictionary dictionaryWithFormEncodedString:body];
 	[body release];
 	
 	// TODO: allow signup too
-	if ([[url host] isEqual:@"api.twitter.com"] && [[url path] isEqual:@"/oauth/authorize"]) {
+	if ([[url host] isEqualToString:@"api.twitter.com"] && [[url path] isEqualToString:@"/oauth/authorize"]) {
 		// Handle cancel
 		if ([params objectForKey:@"cancel"]) {
 			[self cancel:self];
