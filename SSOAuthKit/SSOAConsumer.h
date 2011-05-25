@@ -8,6 +8,8 @@
 
 @interface SSOAConsumer : NSObject <NSCoding, NSCopying> {
 
+@private
+	
 	NSString *_key;
 	NSString *_secret;
 }

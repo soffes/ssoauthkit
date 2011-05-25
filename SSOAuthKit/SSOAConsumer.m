@@ -13,6 +13,7 @@
 @synthesize key = _key;
 @synthesize secret = _secret;
 
+#pragma mark -
 #pragma mark NSObject
 
 - (void)dealloc {
@@ -22,6 +23,7 @@
 }
 
 
+#pragma mark -
 #pragma mark Initializers
 
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret {
@@ -56,6 +58,8 @@
 	return self;
 }
 
+
+#pragma mark -
 #pragma mark NSCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -72,6 +76,8 @@
 	[encoder encodeObject:self.secret forKey:@"secret"];
 }
 
+
+#pragma mark -
 #pragma mark NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {

@@ -12,6 +12,8 @@
 
 @interface SSOAFormRequest : ASIFormDataRequest {
 	
+@private
+	
 	SSOAToken *_token;
 }
 

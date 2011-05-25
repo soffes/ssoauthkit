@@ -17,11 +17,18 @@
 
 @synthesize token = _token;
 
+#pragma mark -
+#pragma mark NSObject
+
 - (void)dealloc {
 	self.token = nil;
 	[super dealloc];
 }
 
+
+
+#pragma mark -
+#pragma mark ASIHTTPRequest
 
 - (id)initWithURL:(NSURL *)newURL {
 	if ((self = [super initWithURL:newURL])) {

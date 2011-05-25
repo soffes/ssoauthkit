@@ -6,7 +6,9 @@ SSOAuthKit was designed to making interacting with OAuth 1.0 services as painles
 
 Having include a header file with your consumer credentials is kind of a pain. Different applications manage their constants different. SSOAuthKit is flexible. You just have to call the following method once to setup your credentials.
 
-    [SSOAuthKitConfiguration setConsumerKey:@"CONSUMER_KEY_GOES_HERE" secret:@"CONSUMER_SECRET_GOES_HERE"];
+```objective-c
+[SSOAuthKitConfiguration setConsumerKey:@"CONSUMER_KEY_GOES_HERE" secret:@"CONSUMER_SECRET_GOES_HERE"];
+```
 
 Done. Simple as that.
 
@@ -14,28 +16,52 @@ Done. Simple as that.
 
 SSOAuthKit's core is `SSOARequest` and `SSOAFormRequest` which are subclasses of `ASIHTTPRequest`. You just simply set a token like this:
 
-    SSOARequest *request = [[SSOARequest alloc] initWithURL:someUrl];
-    request.token = yourToken;
-    [request startAsynchronous];
-    [request release];
+```objective-c
+SSOARequest *request = [[SSOARequest alloc] initWithURL:someUrl];
+request.token = yourToken;
+[request startAsynchronous];
+[request release];
+```
 
 ## Twitter
 
 The main goal of SSOAuthKit was to make authenticating with Twitter stupid easy. There is a handy class called `SSTwitterOAuthViewController` that handles *everything* for you. You can have your application setup on Twitter to do the pin style verification or the redirect style verification. (If you do the redirect style, the redirect is stopped and verified by the library. You are responsible for forwarding the message to your server.) Pin style is recommended. Just present it as a modal:
 
-    SSTwitterOAuthViewController *viewController = [[SSTwitterOAuthViewController alloc] initWithDelegate:self];
-    [self presentModalViewController:viewController animated:YES];
-    [viewController release];
+```objective-c
+SSTwitterOAuthViewController *viewController = [[SSTwitterOAuthViewController alloc] initWithDelegate:self];
+UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+[self presentModalViewController:navigationController animated:YES];
+[viewController release];
+[navigationController release];
+```
 
 You can of course, do it however you want though.
 
-`SSTwitterOAuthViewController` has three optional delegate methods:
+`SSTwitterAuthViewController` has three optional delegate methods:
 
-    - (void)twitterOAuthViewControllerDidCancel:(SSTwitterOAuthViewController *)viewController;
-    - (void)twitterOAuthViewController:(SSTwitterOAuthViewController *)viewController didFailWithError:(NSError *)error;
-    - (void)twitterOAuthViewController:(SSTwitterOAuthViewController *)viewController didAuthorizeWithAccessToken:(SSOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary;
+```objective-c
+- (void)twitterAuthViewControllerDidCancel:(UIViewController *)viewController;
+- (void)twitterAuthViewController:(UIViewController *)viewController didFailWithError:(NSError *)error;
+- (void)twitterAuthViewController:(UIViewController *)viewController didAuthorizeWithAccessToken:(SSOAToken *)accessToken userDictionary:(NSDictionary *)userDictionary;
+```
 
 So if something fails, you get an error that you can handle. If it succeeds, you got their access token and an NSDictionary of their user from Twitter.
+
+### xAuth
+
+Twitter's [xAuth](http://dev.twitter.com/pages/xauth) is also supported. To use, implement the same delegates and use the following code to present the modal:
+
+```objective-c
+SSTwitterXAuthViewController *viewController = [[SSTwitterXAuthViewController alloc] initWithDelegate:self];
+UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+[self presentModalViewController:navigationController animated:YES];
+[viewController release];
+[navigationController release];
+```
+
+The [demo app](https://github.com/samsoffes/ssoauthkit/tree/master/TwitterDemo) has examples of both methods.
 
 ## Adding SSOAuthKit (and SSToolkit) to your project
 

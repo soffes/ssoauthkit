@@ -10,62 +10,37 @@
 #import "SSOAuthKitConfiguration.h"
 #import "SSOAToken.h"
 #import "SSOAFormRequest.h"
+#import "SSTwitterAuthViewControllerDelegate.h"
 #import "ASIHTTPRequest.h"
 #import "JSONKit.h"
 #import <SSToolkit/SSLoadingView.h>
-#import <SSToolkit/SSCategories.h>
-
-static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstwitteroauthviewcontroller";
+#import <SSToolkit/UIImage+SSToolkitAdditions.h>
+#import <SSToolkit/UIView+SSToolkitAdditions.h>
+#import <SSToolkit/NSDictionary+SSToolkitAdditions.h>
 
 @interface SSTwitterOAuthViewController (Private)
 - (void)_requestRequestToken;
 - (void)_requestAccessToken;
 - (void)_verifyAccessToken:(NSString *)verifier;
-- (void)_requestUser;
-- (void)_failWithError:(NSError *)error;
-- (void)_failWithErrorString:(NSString *)message code:(NSInteger)code;
 @end
 
 @implementation SSTwitterOAuthViewController
 
-@synthesize delegate = _delegate;
-
+#pragma mark -
 #pragma mark NSObject
 
-- (id)init {
-	if ((self = [super init])) {
-		self.modalPresentationStyle = UIModalPresentationFormSheet;
-	}
-	return self;
-}
-
-
 - (void)dealloc {
-	_delegate = nil;
-	
-	_request.delegate = nil;
-	[_request cancel];
-	[_request release];
-	
-	[_loadingView release];
 	[_authorizationView release];
 	[_requestToken release];
-	[_accessToken release];
 	[super dealloc];
 }
 
 
+#pragma mark -
 #pragma mark UIViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	
-	self.title = @"Authorize";
-	
-	// Cancel button
-	UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel:)];
-	self.navigationItem.leftBarButtonItem = cancelButton;
-	[cancelButton release];
 	
 	// Background image
 	UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 100.0)];
@@ -77,11 +52,8 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 	self.view.backgroundColor = [UIColor colorWithRed:0.753 green:0.875 blue:0.925 alpha:1.0];
 	
 	// Loading
-	_loadingView = [[SSLoadingView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height)];
-	_loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	_loadingView.backgroundColor = [UIColor clearColor];
-	_loadingView.opaque = NO;
-	[self.view addSubview:_loadingView];
+	self.loadingView.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
+	[self.view addSubview:self.loadingView];
 	
 	// Web view
 	_authorizationView = [[UIWebView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -94,47 +66,31 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 }
 
 
-#pragma mark Initalizer
-
-- (id)initWithDelegate:(id<SSTwitterOAuthViewControllerDelegate>)aDelegate {
-	if ((self = [self init])) {
-		self.delegate = aDelegate;
-	}
-	return self;
-}
-
-
-#pragma mark Actions
-
-- (void)cancel:(id)sender {
-	if ([_delegate respondsToSelector:@selector(twitterOAuthViewControllerDidCancel:)]) {
-		[_delegate twitterOAuthViewControllerDidCancel:self];
-	}
-}
-
-
+#pragma mark -
 #pragma mark Private Methods
 
 // *** Step 1
 - (void)_requestRequestToken {
-	
-	[_request release];
+	[self cancelRequest];
 	
 	// Update loading text
-	_loadingView.text = @"Requesting token...";
+	self.loadingView.text = @"Requesting token...";
 	
 	// Perform request for request token
 	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/oauth/request_token"];
-	_request = [[SSOAFormRequest alloc] initWithURL:url];
+	SSOAFormRequest *aRequest = [[SSOAFormRequest alloc] initWithURL:url];
+	aRequest.delegate = self;
+	self.request = aRequest;
+	[aRequest release];
 	[url release];
-	_request.delegate = self;
-	[_request startAsynchronous];
+	
+	[self.request startAsynchronous];
 }
 
 
 // *** Step 2
 - (void)_requestAccessToken {	
-	_loadingView.text = @"Authorizing...";
+	self.loadingView.text = @"Authorizing...";
 	
 	NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@&oauth_callback=oob", _requestToken.key];
 	NSURL *url = [[NSURL alloc] initWithString:urlString];
@@ -159,95 +115,44 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 // *** Step 3
 - (void)_verifyAccessToken:(NSString *)verifier {
 	_verifying = YES;
-	_loadingView.text = @"Verifying...";
+	self.loadingView.text = @"Verifying...";
 	
 	[_authorizationView fadeOut];
 	[_authorizationView release];
 	_authorizationView = nil;
 	
-	_request.delegate = nil;
-	[_request cancel];
-	[_request release];
+	[self cancelRequest];
 	
 	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/oauth/access_token"];
 	
-	_request = [[SSOAFormRequest alloc] initWithURL:url];
-	_request.token = _requestToken;
-	_request.delegate = self;
-	[_request addPostValue:verifier forKey:@"oauth_verifier"];
-	[_request startAsynchronous];
-	
+	SSOAFormRequest *aRequest = [[SSOAFormRequest alloc] initWithURL:url];
+	aRequest.token = _requestToken;
+	aRequest.delegate = self;
+	[aRequest addPostValue:verifier forKey:@"oauth_verifier"];
+	self.request = aRequest;
+	[aRequest release];
 	[url release];
-}
-
-
-// *** Step 4
-- (void)_requestUser {
-	_loadingView.text = @"Saving...";
 	
-	_request.delegate = nil;
-	[_request cancel];
-	[_request release];
-	
-	NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1/account/verify_credentials.json"];
-	
-	_request = [[SSOAFormRequest alloc] initWithURL:url];
-	_request.requestMethod = @"GET";
-	_request.token = _accessToken;
-	_request.delegate = self;
-	[_request startAsynchronous];
-	
-	[url release];
+	[self.request startAsynchronous];
 }
 
 
-- (void)_failWithError:(NSError *)error {
-	if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-		[_delegate twitterOAuthViewController:self didFailWithError:error];
-	}
-}
-
-
-- (void)_failWithErrorString:(NSString *)message code:(NSInteger)code {
-	if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didFailWithError:)]) {
-		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:message, NSLocalizedDescriptionKey, nil];
-		NSError *error = [NSError errorWithDomain:kSSTwitterOAuthViewControllerErrorDomain code:code userInfo:userInfo];
-		[_delegate twitterOAuthViewController:self didFailWithError:error];
-	}
-}
-
-
-#pragma mark TWURLConnectionDelegate
-
-- (void)requestStarted:(ASIHTTPRequest *)aRequest {
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-}
-
-
-- (void)requestFailed:(ASIHTTPRequest *)aRequest {
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	[self _failWithError:[aRequest error]];
-}
-
+#pragma mark -
+#pragma mark ASIHTTPRequestDelegate
 
 - (void)requestFinished:(ASIHTTPRequest *)aRequest {
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	
-	if ([aRequest responseStatusCode] == 500) {
-		[self _failWithErrorString:@"Something went technically wrong on Twitter's end. Maybe try again later." code:-2];
-		return;
-	}
+	[super requestFinished:aRequest];
 	
 	NSString *path = [[aRequest url] path];
 	
 	// *** Step 1 - Request token
 	if ([path isEqualToString:@"/oauth/request_token"]) {
-		
+		// Create request token
 		NSString *httpBody = [aRequest responseString];
 		
 		// Check for token error
 		if ([httpBody isEqualToString:@"Failed to validate oauth signature and token"]) {
-			[self _failWithErrorString:httpBody code:-1];
+			[self failWithErrorString:httpBody code:-1];
 			return;
 		}
 		
@@ -257,7 +162,7 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 		// Check for token error
 		if (!aToken.key || !aToken.secret) {
 			[aToken release];
-			[self _failWithErrorString:@"The request token could not be generated" code:-1];
+			[self failWithErrorString:@"The request token could not be generated" code:-1];
 			return;
 		}
 		
@@ -280,57 +185,38 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 		
 		// Check for token error
 		if (aToken == nil) {
-			[self _failWithErrorString:@"The access token could not be generated" code:-1];
+			[self failWithErrorString:@"The access token could not be generated" code:-1];
 			return;
 		}
 		
-		_accessToken = [aToken retain];
+		self.accessToken = aToken;
 		[aToken release];
 		
 		// Get user dictionary
-		[self _requestUser];
+		[self requestUser];
 		return;
 	}
 	
-	// *** Step 4 - Get user
-	else if ([path isEqualToString:@"/1/account/verify_credentials.json"]) {
-		NSError *jsonError = nil;
-		NSDictionary *dictionary = [[aRequest responseData] objectFromJSONDataWithParseOptions:0 error:&jsonError];
-		if (!dictionary) {
-			// TODO: Pass access token along since we successfully got it already
-			NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
-									  jsonError, NSUnderlyingErrorKey,
-									  _accessToken, @"accessToken",
-									  @"Failed to get Twitter profile.", NSLocalizedDescriptionKey,
-									  nil];			
-			NSError *error = [NSError errorWithDomain:kSSTwitterOAuthViewControllerErrorDomain code:-3 userInfo:userInfo];
-			[userInfo release];
-			[self _failWithError:error];
-			return;
-		}
-		
-		// Notify delegate
-		if ([_delegate respondsToSelector:@selector(twitterOAuthViewController:didAuthorizeWithAccessToken:userDictionary:)]) {
-			[_delegate twitterOAuthViewController:self didAuthorizeWithAccessToken:_accessToken userDictionary:dictionary];
-		}
-	}
+	// *** Step 2 - Get user (super class handles this)
 }
 
 
+#pragma mark -
 #pragma mark UIWebViewDelegate
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	[self _failWithError:error];
+	[self failWithError:error];
 }
 
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)aRequest navigationType:(UIWebViewNavigationType)navigationType {
-	if (_accessToken) {
+	if (self.accessToken) {
 		return NO;
 	}
 	
 	NSURL *url = [aRequest URL];
+	NSLog(@"url: %@", url);
 	
 	// Allow the user to change users
 	if ([[url host] isEqualToString:@"api.twitter.com"] && [[url path] isEqualToString:@"/logout"]) {
@@ -367,14 +253,14 @@ static NSString *kSSTwitterOAuthViewControllerErrorDomain = @"com.samsoffes.sstw
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
 	// Check for pin
-	NSString *pin = [_authorizationView stringByEvaluatingJavaScriptFromString:@"document.getElementById('oauth_pin').innerText"];
+	NSString *pin = [_authorizationView stringByEvaluatingJavaScriptFromString:@"document.querySelectorAll.apply(document, ['div#oauth_pin code'])[0].innerHTML"];
 	if ([pin length] == 7) {
 		[self _verifyAccessToken:pin];
 		return;
 	}
 	
 	// Fade in
-	if (!_accessToken && _verifying == NO) {
+	if (!self.accessToken && _verifying == NO) {
 		[_authorizationView fadeIn];
 	}
 }

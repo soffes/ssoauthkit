@@ -10,6 +10,7 @@
 
 @implementation SSOAToken
 
+#pragma mark -
 #pragma mark Initializers
 
 - (id)initWithUserDefaultsUsingServiceProviderName:(NSString *)provider prefix:(NSString *)prefix {
@@ -20,6 +21,8 @@
 	return self;
 }
 
+
+#pragma mark -
 #pragma mark Utilities
 
 - (void)storeInUserDefaultsWithServiceProviderName:(NSString *)provider prefix:(NSString *)prefix {

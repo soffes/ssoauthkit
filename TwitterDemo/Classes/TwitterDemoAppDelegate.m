@@ -13,6 +13,7 @@
 
 @synthesize window = _window;
 
+#pragma mark -
 #pragma mark NSObject
 
 - (void)dealloc {
@@ -21,6 +22,7 @@
 }
 
 
+#pragma mark -
 #pragma mark UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

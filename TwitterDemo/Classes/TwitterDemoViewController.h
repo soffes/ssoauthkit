@@ -6,14 +6,17 @@
 //  Copyright Sam Soffes 2010-2011. All rights reserved.
 //
 
-#import "SSTwitterOAuthViewController.h"
+#import "SSTwitterAuthViewControllerDelegate.h"
 
-@interface TwitterDemoViewController : UIViewController <SSTwitterOAuthViewControllerDelegate> {
+@interface TwitterDemoViewController : UIViewController <SSTwitterAuthViewControllerDelegate> {
 
+@private
+	
 	UILabel *_userLabel;
 }
 
-- (void)login:(id)sender;
+- (void)loginWithOAuth:(id)sender;
+- (void)loginWithXAuth:(id)sender;
 
 @end
 

@@ -8,6 +8,8 @@
 
 @interface TwitterDemoAppDelegate : NSObject <UIApplicationDelegate> {
 	
+@private
+	
     UIWindow *_window;
 }
 

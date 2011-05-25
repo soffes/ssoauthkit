@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		B202D4651348D35A00C389A8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B202D4621348D35A00C389A8 /* JSONKit.h */; };
 		B202D4661348D35A00C389A8 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B202D4631348D35A00C389A8 /* JSONKit.m */; };
+		B24ED8C6138C790F00FACB48 /* SSTwitterXAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B24ED8C4138C790F00FACB48 /* SSTwitterXAuthViewController.h */; };
+		B24ED8C7138C790F00FACB48 /* SSTwitterXAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24ED8C5138C790F00FACB48 /* SSTwitterXAuthViewController.m */; };
+		B24ED8CE138C79CF00FACB48 /* SSTwitterAuthViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B24ED8CD138C79CF00FACB48 /* SSTwitterAuthViewControllerDelegate.h */; };
+		B24ED8DA138C7A9B00FACB48 /* SSTwitterAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B24ED8D8138C7A9B00FACB48 /* SSTwitterAuthViewController.h */; };
+		B24ED8DB138C7A9B00FACB48 /* SSTwitterAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24ED8D9138C7A9B00FACB48 /* SSTwitterAuthViewController.m */; };
 		B27E1B2611F0D5E000165C54 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27E1B2511F0D5E000165C54 /* CFNetwork.framework */; };
 		B27E1B2811F0D5E000165C54 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27E1B2711F0D5E000165C54 /* CoreGraphics.framework */; };
 		B27E1B2A11F0D5E000165C54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27E1B2911F0D5E000165C54 /* Foundation.framework */; };
@@ -86,6 +91,11 @@
 /* Begin PBXFileReference section */
 		B202D4621348D35A00C389A8 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		B202D4631348D35A00C389A8 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		B24ED8C4138C790F00FACB48 /* SSTwitterXAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTwitterXAuthViewController.h; sourceTree = "<group>"; };
+		B24ED8C5138C790F00FACB48 /* SSTwitterXAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTwitterXAuthViewController.m; sourceTree = "<group>"; };
+		B24ED8CD138C79CF00FACB48 /* SSTwitterAuthViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTwitterAuthViewControllerDelegate.h; sourceTree = "<group>"; };
+		B24ED8D8138C7A9B00FACB48 /* SSTwitterAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTwitterAuthViewController.h; sourceTree = "<group>"; };
+		B24ED8D9138C7A9B00FACB48 /* SSTwitterAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTwitterAuthViewController.m; sourceTree = "<group>"; };
 		B27E1B2511F0D5E000165C54 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B27E1B2711F0D5E000165C54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B27E1B2911F0D5E000165C54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -211,6 +221,55 @@
 			path = JSONKit;
 			sourceTree = "<group>";
 		};
+		B24ED8DD138C7ACC00FACB48 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B2E03268121DC80B00D02434 /* NSDictionary+oaCompareKeys.h */,
+				B2E03269121DC80B00D02434 /* NSDictionary+oaCompareKeys.m */,
+				B2E0326A121DC80B00D02434 /* NSURL+OAuthString.h */,
+				B2E0326B121DC80B00D02434 /* NSURL+OAuthString.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		B24ED8DE138C7AD500FACB48 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				B2E0326C121DC80B00D02434 /* SSOAConsumer.h */,
+				B2E0326D121DC80B00D02434 /* SSOAConsumer.m */,
+				B2E0326E121DC80B00D02434 /* SSOAFormRequest.h */,
+				B2E0326F121DC80B00D02434 /* SSOAFormRequest.m */,
+				B2E03270121DC80B00D02434 /* SSOARequest.h */,
+				B2E03271121DC80B00D02434 /* SSOARequest.m */,
+				B2E03272121DC80B00D02434 /* SSOAToken.h */,
+				B2E03273121DC80B00D02434 /* SSOAToken.m */,
+			);
+			name = OAuth;
+			sourceTree = "<group>";
+		};
+		B24ED8DF138C7AE300FACB48 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				B24ED8D8138C7A9B00FACB48 /* SSTwitterAuthViewController.h */,
+				B24ED8D9138C7A9B00FACB48 /* SSTwitterAuthViewController.m */,
+				B24ED8CD138C79CF00FACB48 /* SSTwitterAuthViewControllerDelegate.h */,
+				B2E03279121DC80B00D02434 /* SSTwitterOAuthViewController.h */,
+				B2E0327A121DC80B00D02434 /* SSTwitterOAuthViewController.m */,
+				B24ED8C4138C790F00FACB48 /* SSTwitterXAuthViewController.h */,
+				B24ED8C5138C790F00FACB48 /* SSTwitterXAuthViewController.m */,
+			);
+			name = Twitter;
+			sourceTree = "<group>";
+		};
+		B24ED8E0138C7AED00FACB48 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				B2E03275121DC80B00D02434 /* SSOAuthKitConfiguration.h */,
+				B2E03276121DC80B00D02434 /* SSOAuthKitConfiguration.m */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		B298527F11F0DCB4008B1A4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,23 +333,11 @@
 		B2E03267121DC80B00D02434 /* SSOAuthKit */ = {
 			isa = PBXGroup;
 			children = (
-				B2E03268121DC80B00D02434 /* NSDictionary+oaCompareKeys.h */,
-				B2E03269121DC80B00D02434 /* NSDictionary+oaCompareKeys.m */,
-				B2E0326A121DC80B00D02434 /* NSURL+OAuthString.h */,
-				B2E0326B121DC80B00D02434 /* NSURL+OAuthString.m */,
-				B2E0326C121DC80B00D02434 /* SSOAConsumer.h */,
-				B2E0326D121DC80B00D02434 /* SSOAConsumer.m */,
-				B2E0326E121DC80B00D02434 /* SSOAFormRequest.h */,
-				B2E0326F121DC80B00D02434 /* SSOAFormRequest.m */,
-				B2E03270121DC80B00D02434 /* SSOARequest.h */,
-				B2E03271121DC80B00D02434 /* SSOARequest.m */,
-				B2E03272121DC80B00D02434 /* SSOAToken.h */,
-				B2E03273121DC80B00D02434 /* SSOAToken.m */,
 				B2E03274121DC80B00D02434 /* SSOAuthKit.h */,
-				B2E03275121DC80B00D02434 /* SSOAuthKitConfiguration.h */,
-				B2E03276121DC80B00D02434 /* SSOAuthKitConfiguration.m */,
-				B2E03279121DC80B00D02434 /* SSTwitterOAuthViewController.h */,
-				B2E0327A121DC80B00D02434 /* SSTwitterOAuthViewController.m */,
+				B24ED8E0138C7AED00FACB48 /* Configuration */,
+				B24ED8DE138C7AD500FACB48 /* OAuth */,
+				B24ED8DF138C7AE300FACB48 /* Twitter */,
+				B24ED8DD138C7ACC00FACB48 /* Categories */,
 				B2E0327B121DC80B00D02434 /* Vendor */,
 			);
 			path = SSOAuthKit;
@@ -370,6 +417,9 @@
 				B2CBDA6E1348D520009DDE4D /* ASINetworkQueue.h in Headers */,
 				B2CBDA701348D520009DDE4D /* ASIProgressDelegate.h in Headers */,
 				B2CBDAAB1348D520009DDE4D /* Reachability.h in Headers */,
+				B24ED8C6138C790F00FACB48 /* SSTwitterXAuthViewController.h in Headers */,
+				B24ED8CE138C79CF00FACB48 /* SSTwitterAuthViewControllerDelegate.h in Headers */,
+				B24ED8DA138C7A9B00FACB48 /* SSTwitterAuthViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +513,8 @@
 				B2CBDA6D1348D520009DDE4D /* ASIInputStream.m in Sources */,
 				B2CBDA6F1348D520009DDE4D /* ASINetworkQueue.m in Sources */,
 				B2CBDAAC1348D520009DDE4D /* Reachability.m in Sources */,
+				B24ED8C7138C790F00FACB48 /* SSTwitterXAuthViewController.m in Sources */,
+				B24ED8DB138C7A9B00FACB48 /* SSTwitterAuthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +551,7 @@
 					"\"$(SRCROOT)/SSOAuthKit/Vendor/SSToolkit\"",
 				);
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SSOAuthKit/Vendor/yajl-objc/Project-IPhone/Libraries/GHUnit\"",
@@ -526,6 +579,7 @@
 					"\"$(SRCROOT)/SSOAuthKit/Vendor/SSToolkit\"",
 				);
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SSOAuthKit/Vendor/yajl-objc/Project-IPhone/Libraries/GHUnit\"",

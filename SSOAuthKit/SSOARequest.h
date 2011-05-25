@@ -12,6 +12,8 @@
 
 @interface SSOARequest : ASIHTTPRequest {
 
+@private
+	
 	SSOAToken *_token;
 }
 
