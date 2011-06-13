@@ -8,9 +8,7 @@
 
 @class SSOAConsumer;
 
-@interface SSOAuthKitConfiguration : NSObject {
-
-}
+@interface SSOAuthKitConfiguration : NSObject
 
 + (SSOAConsumer *)consumer;
 
