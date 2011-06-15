@@ -14,6 +14,8 @@
 
 @implementation SSTwitterXAuthViewController
 
+@synthesize tableView = _tableView;
+
 #pragma mark -
 #pragma mark NSObject
 

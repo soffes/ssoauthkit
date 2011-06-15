@@ -17,6 +17,8 @@
 	UITextField *_passwordTextField;
 }
 
+@property (nonatomic, retain, readonly) UITableView *tableView;
+
 - (void)signIn:(id)sender;
 
 @end
