@@ -19,6 +19,8 @@
 
 @property (nonatomic, retain, readonly) UITextField *usernameTextField;
 @property (nonatomic, retain, readonly) UITextField *passwordTextField;
+@property (nonatomic, retain, readonly) UITableView *tableView;
+
 - (void)signIn:(id)sender;
 
 @end

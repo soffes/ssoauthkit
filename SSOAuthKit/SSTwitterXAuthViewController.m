@@ -16,6 +16,8 @@
 
 @synthesize usernameTextField = _usernameTextField;
 @synthesize passwordTextField = _passwordTextField;
+@synthesize tableView = _tableView;
+
 #pragma mark -
 #pragma mark NSObject
 
