@@ -17,6 +17,8 @@
 	UITextField *_passwordTextField;
 }
 
+@property (nonatomic, retain, readonly) UITextField *usernameTextField;
+@property (nonatomic, retain, readonly) UITextField *passwordTextField;
 - (void)signIn:(id)sender;
 
 @end

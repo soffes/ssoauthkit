@@ -14,6 +14,8 @@
 
 @implementation SSTwitterXAuthViewController
 
+@synthesize usernameTextField = _usernameTextField;
+@synthesize passwordTextField = _passwordTextField;
 #pragma mark -
 #pragma mark NSObject
 
