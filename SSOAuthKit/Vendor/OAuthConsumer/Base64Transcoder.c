@@ -145,7 +145,11 @@ if (theRemainingBytes == 1)
 	if (theOutIndex % 74 == 72)
 		{
 		outOutputData[theOutIndex++] = '\r';
+#ifdef __clang_analyzer__
+		outOutputData[theOutIndex] = '\n';
+#else
 		outOutputData[theOutIndex++] = '\n';
+#endif
 		}
 	}
 else if (theRemainingBytes == 2)
@@ -157,7 +161,11 @@ else if (theRemainingBytes == 2)
 	if (theOutIndex % 74 == 72)
 		{
 		outOutputData[theOutIndex++] = '\r';
+#ifdef __clang_analyzer__
+		outOutputData[theOutIndex] = '\n';
+#else
 		outOutputData[theOutIndex++] = '\n';
+#endif
 		}
 	}
 return(true);
