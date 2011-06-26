@@ -9,8 +9,8 @@
 #import "SSOAuthKitConfiguration.h"
 #import "SSOAConsumer.h"
 
-static NSString *consumerKey = nil;
-static NSString *consumerSecret = nil;
+static NSString *SSOAuthKitConfigurationConsumerKey = nil;
+static NSString *SSOAuthKitConfigurationConsumerSecret = nil;
 
 @implementation SSOAuthKitConfiguration
 
@@ -26,24 +26,30 @@ static NSString *consumerSecret = nil;
 
 
 + (void)setConsumerKey:(NSString *)key {
-	[consumerKey release];
-	consumerKey = [key retain];
+	if (key == SSOAuthKitConfigurationConsumerKey) {
+		return;
+	}
+	[SSOAuthKitConfigurationConsumerKey release];
+	SSOAuthKitConfigurationConsumerKey = [key retain];
 }
 
 
 + (NSString *)consumerKey {
-	return consumerKey;
+	return SSOAuthKitConfigurationConsumerKey;
 }
 
 
-+ (void)setConsumerSecret:(NSString *)key {
-	[consumerSecret release];
-	consumerSecret = [key retain];
++ (void)setConsumerSecret:(NSString *)secret {
+	if (secret == SSOAuthKitConfigurationConsumerSecret) {
+		return;
+	}
+	[SSOAuthKitConfigurationConsumerSecret release];
+	SSOAuthKitConfigurationConsumerSecret = [secret retain];
 }
 
 
 + (NSString *)consumerSecret {
-	return consumerSecret;
+	return SSOAuthKitConfigurationConsumerSecret;
 }
 
 @end

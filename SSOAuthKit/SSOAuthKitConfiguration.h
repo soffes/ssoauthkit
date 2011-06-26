@@ -17,7 +17,7 @@
 + (void)setConsumerKey:(NSString *)key;
 + (NSString *)consumerKey;
 
-+ (void)setConsumerSecret:(NSString *)key;
++ (void)setConsumerSecret:(NSString *)secret;
 + (NSString *)consumerSecret;
 
 @end
