@@ -43,24 +43,24 @@
 	[super viewDidLoad];
 	
 	// Background image
-	UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 100.0)];
+	UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 100.0f)];
 	backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
 	backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"images/twitter_oauth_background.png" bundle:@"SSOAuthKit.bundle"]];
 	backgroundView.opaque = YES;
 	[self.view addSubview:backgroundView];
 	[backgroundView release];
-	self.view.backgroundColor = [UIColor colorWithRed:0.753 green:0.875 blue:0.925 alpha:1.0];
+	self.view.backgroundColor = [UIColor colorWithRed:0.753f green:0.875f blue:0.925f alpha:1.0f];
 	
 	// Loading
-	self.loadingView.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
+	self.loadingView.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
 	[self.view addSubview:self.loadingView];
 	
 	// Web view
-	_authorizationView = [[UIWebView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height)];
+	_authorizationView = [[UIWebView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height)];
 	_authorizationView.dataDetectorTypes = UIDataDetectorTypeNone;
 	_authorizationView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	_authorizationView.delegate = self;
-	_authorizationView.alpha = 0.0;
+	_authorizationView.alpha = 0.0f;
 	
 	[self _requestRequestToken];
 }
@@ -100,11 +100,11 @@
 	
 	// Setup webView
 	CGRect frame = self.view.frame;
-	_authorizationView = [[UIWebView alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)];
+	_authorizationView = [[UIWebView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, frame.size.width, frame.size.height)];
 	_authorizationView.dataDetectorTypes = UIDataDetectorTypeNone;
 	_authorizationView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	_authorizationView.delegate = self;
-	_authorizationView.alpha = 0.0;
+	_authorizationView.alpha = 0.0f;
 	[_authorizationView loadRequest:aRequest];
 	[self.view addSubview:_authorizationView];
 	
