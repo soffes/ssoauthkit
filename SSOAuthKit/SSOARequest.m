@@ -87,8 +87,8 @@
 	NSUInteger i = 0;
 	NSUInteger count = [parameterPairs count] - 1;
 	for (NSDictionary *pair in sortedPairs) {
-        NSString *string = [NSString stringWithFormat:@"%@=%@%@", [self encodeURL:[pair objectForKey:@"key"]], [self encodeURL:[pair objectForKey:@"value"]], (i < count ?  @"&" : @"")]; 
-		[normalizedRequestParameters appendString:string];
+        NSString *parameterString = [NSString stringWithFormat:@"%@=%@%@", [self encodeURL:[pair objectForKey:@"key"]], [self encodeURL:[pair objectForKey:@"value"]], (i < count ?  @"&" : @"")];
+		[normalizedRequestParameters appendString:parameterString];
 		i++;
 	}
 	[parameterPairs release];
