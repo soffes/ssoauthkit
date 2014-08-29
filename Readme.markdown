@@ -1,3 +1,7 @@
+This library is very old. I recommend using [SimpleAuth](https://github.com/calebd/simpleauth) instead.
+
+---
+
 # SSOAuthKit
 
 SSOAuthKit was designed to making interacting with OAuth 1.0 services as painless as possible. (If you are looking for an OAuth 2.0 client, check out [LROAuth2Client](http://github.com/lukeredpath/lroauth2client).)
